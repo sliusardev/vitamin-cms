@@ -18,7 +18,7 @@
                 <div class="service-item">
                     <a href="#" class="service-item-wrap">
                         <div class="service-img-wrap">
-                            <img src="img/microscope.png" alt="" />
+                            <img src="{{asset('themes/medical/img/microscope.png')}}" alt="" />
                         </div>
                         <span class="service-item-title"> Safety & Technology </span>
                     </a>
@@ -29,7 +29,7 @@
                 <div class="service-item">
                     <a href="#" class="service-item-wrap">
                         <div class="service-img-wrap">
-                            <img src="img/medical-doctor.png" alt="" />
+                            <img src="{{asset('themes/medical/img/medical-doctor.png')}}" alt="" />
                         </div>
                         <span class="service-item-title">   Experienced Team </span>
                     </a>
@@ -40,7 +40,7 @@
                 <div class="service-item">
                     <a href="#" class="service-item-wrap">
                         <div class="service-img-wrap">
-                            <img src="img/medical-tool.png" alt="" />
+                            <img src="{{asset('themes/medical/img/medical-tool.png')}}" alt="" />
                         </div>
                         <span class="service-item-title">  Modern Equipment  </span>
                     </a>
@@ -56,7 +56,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="about-img-wrap">
-                    <img src="img/about.jpg" alt="" />
+                    <img src="{{asset('themes/medical/img/about.jpg')}}" alt="" />
                     <div class="skin-care-about-wrap">
                         <div class="skin-wrap">
                             <div class="skin-care-about-item">
@@ -96,7 +96,7 @@
                 <div class="popular-services-item">
                     <a href="#" class="popular-services-item-wrap">
                         <div class="popular-services-img-wrap">
-                            <img src="img/services-1.jpg" alt="" />
+                            <img src="{{asset('themes/medical/img/services-1.jpg')}}" alt="" />
                         </div>
                         <div class="popular-services-wrap-text">
                             <span class="popular-services-item-title"> Skin Care </span>
@@ -109,7 +109,7 @@
                 <div class="popular-services-item">
                     <a href="#" class="popular-services-item-wrap">
                         <div class="popular-services-img-wrap">
-                            <img src="img/services-2.jpg" alt="" />
+                            <img src="{{asset('themes/medical/img/services-2.jpg')}}" alt="" />
                         </div>
                         <div class="popular-services-wrap-text">
                             <span class="popular-services-item-title"> Needle Mesotherapy </span>
@@ -122,7 +122,7 @@
                 <div class="popular-services-item">
                     <a href="#" class="popular-services-item-wrap">
                         <div class="popular-services-img-wrap">
-                            <img src="img/services-3.jpg" alt="" />
+                            <img src="{{asset('themes/medical/img/services-3.jpg')}}" alt="" />
                         </div>
                         <div class="popular-services-wrap-text">
                             <span class="popular-services-item-title">  Hair Removal </span>
@@ -135,7 +135,7 @@
                 <div class="popular-services-item">
                     <a href="#" class="popular-services-item-wrap">
                         <div class="popular-services-img-wrap">
-                            <img src="img/services-4.jpg" alt="" />
+                            <img src="{{asset('themes/medical/img/services-4.jpg')}}" alt="" />
                         </div>
                         <div class="popular-services-wrap-text">
                             <span class="popular-services-item-title">  Laser Treatments  </span>
@@ -148,7 +148,7 @@
                 <div class="popular-services-item">
                     <a href="#" class="popular-services-item-wrap">
                         <div class="popular-services-img-wrap">
-                            <img src="img/services-5.jpg" alt="" />
+                            <img src="{{asset('themes/medical/img/services-5.jpg')}}" alt="" />
                         </div>
                         <div class="popular-services-wrap-text">
                             <span class="popular-services-item-title"> Skin Resurfacing </span>
@@ -161,7 +161,7 @@
                 <div class="popular-services-item">
                     <a href="#" class="popular-services-item-wrap">
                         <div class="popular-services-img-wrap">
-                            <img src="img/services-6.jpg" alt="" />
+                            <img src="{{asset('themes/medical/img/services-6.jpg')}}" alt="" />
                         </div>
                         <div class="popular-services-wrap-text">
                             <span class="popular-services-item-title">  Plastic Surgery </span>
@@ -187,7 +187,7 @@
                 <div class="blog-item">
                     <a href="#" class="blog-item-wrap">
                         <div class="blog-img-wrap">
-                            <img src="img/blog-1.jpg" alt="" />
+                            <img src="{{asset('themes/medical/img/blog-1.jpg')}}" alt="" />
                         </div>
                         <div class="blog-wrap-info">
                             <span class="blog-item-info"><i class="fal fa-user"></i>By: Medical cms</span>
@@ -203,7 +203,7 @@
                 <div class="blog-item">
                     <a href="#" class="blog-item-wrap">
                         <div class="blog-img-wrap">
-                            <img src="img/blog-2.jpg" alt="" />
+                            <img src="{{asset('themes/medical/img/blog-2.jpg')}}" alt="" />
                         </div>
                         <div class="blog-wrap-info">
                             <span class="blog-item-info"><i class="fal fa-user"></i>By: Medical cms</span>
@@ -219,7 +219,7 @@
                 <div class="blog-item">
                     <a href="#" class="blog-item-wrap">
                         <div class="blog-img-wrap">
-                            <img src="img/blog-3.jpg" alt="" />
+                            <img src="{{asset('themes/medical/img/blog-3.jpg')}}" alt="" />
                         </div>
                         <div class="blog-wrap-info">
                             <span class="blog-item-info"><i class="fal fa-user"></i>By: Medical cms</span>
