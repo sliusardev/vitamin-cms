@@ -20,6 +20,10 @@ class ThemeService
 
     public static function themeView(string $bladeName, array $params = [])
     {
+        if (empty(self::templateRecoursePath())) {
+            return redirect('cms-welcome');
+        }
+
         return view(self::templateRecoursePath() .'/'.$bladeName, $params);
     }
 

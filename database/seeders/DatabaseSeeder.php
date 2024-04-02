@@ -15,17 +15,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-         $adminUser = User::factory()->create([
-             'name' => 'Admin',
-             'email' => 'admin@admin.test',
-         ]);
-
-         $adminRole = Role::query()->firstOrCreate([
-             'name' => 'admin',
-             'guard_name' => 'web',
-         ]);
-
-         $adminUser->assignRole($adminRole);
+        app()->call(AdmRoleSeeder::class);
+        app()->call(AdmUserSeeder::class);
 //
 //        User::factory(10)->create();
 //

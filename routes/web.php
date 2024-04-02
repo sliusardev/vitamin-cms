@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::view('cms-welcome', 'welcome');
+
 Route::get('/post-search', [PostController::class, 'search'])->name('post-search');
 Route::post('/adm-form/{link_hash}', [AdmFormController::class, 'form'])->name('adm-form');
 Route::post('/add-comment', [CommentController::class, 'store'])->name('add-comment');
@@ -33,8 +36,8 @@ Route::get('tags/{slug}', [TagController::class, 'show'])->name('tag');
 Route::get('categories', [CategoryController::class, 'index'])->name('categories');
 Route::get('categories/{slug}', [CategoryController::class, 'show'])->name('category');
 
-
-
 Route::get('{slug}', [PageController::class, 'show'])->name('page');
+
+
 
 
