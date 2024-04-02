@@ -34,7 +34,7 @@ class CmsStart extends Command
         $this->call('optimize:clear');
 
         $user = User::query()->where('email', 'admin@admin.com')->first();
-
+//
         if(!$user) {
             $this->call('cache:clear');
             $this->call('db:seed');
