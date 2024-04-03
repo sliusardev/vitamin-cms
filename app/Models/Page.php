@@ -6,6 +6,7 @@ use App\Traits\ContentTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Page extends Model
 {
@@ -14,6 +15,7 @@ class Page extends Model
 
     protected $fillable = [
         'user_id',
+        'parent_id',
         'title',
         'slug',
         'short',
@@ -43,5 +45,15 @@ class Page extends Model
     public function link(): string
     {
         return route('page', $this->slug);
+    }
+
+    public function parent(): BelongsTo
+    {
+        return $this->belongsTo(Page::class, 'parent_id');
+    }
+
+    public function children(): HasMany
+    {
+        return $this->hasMany(Page::class, 'parent_id');
     }
 }

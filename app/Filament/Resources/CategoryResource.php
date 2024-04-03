@@ -95,10 +95,12 @@ class CategoryResource extends Resource
                             ->schema([
 
                                 TextInput::make('order')
+                                    ->label(trans('dashboard.order'))
                                     ->integer(true)
                                     ->default(0),
 
                                 Select::make('parent_id')
+                                    ->label(trans('dashboard.parent'))
                                     ->options(function($record) {
                                         if($record) {
                                             return Category::query()

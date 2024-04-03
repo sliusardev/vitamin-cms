@@ -39,4 +39,29 @@ class PageService
 
         return $page;
     }
+
+    public function getOneByParentSlug(string $parentSlug, string $slug): object|null
+    {
+        $page = Page::query()
+            ->whereHas('parent', function($q) use ($parentSlug){
+                $q->where('slug', $parentSlug);
+            })
+            ->where('slug', $slug)
+            ->active()->first();
+
+        if($page) {
+            $page->increment('views');
+            $page->save();
+        }
+
+        return $page;
+    }
+
+    public function getByParentId($id)
+    {
+        return Page::query()
+            ->where('parent_id', $id)
+            ->orderBy('order')
+            ->active()->get();
+    }
 }

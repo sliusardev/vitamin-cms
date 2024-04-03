@@ -23,9 +23,29 @@ class PageController extends Controller
 
         return themeView('index', compact('posts'));
     }
+
     public function show(Request $request, $slug)
     {
         $page = $this->pageService->getOneBySlug($slug);
+
+        if(!$page) {
+            return redirect('/');
+        }
+
+        $thumb = $page->thumb();
+        $images = $page->images();
+        $template = $page->template ?? 'page';
+        $templateName = PageService::getPageTemplateName($template);
+
+        return themeView(
+            'pages.'.$templateName,
+            compact('page', 'thumb', 'images')
+        );
+    }
+
+    public function showByParent(Request $request,  string $parentSlug, string $slug)
+    {
+        $page = $this->pageService->getOneByParentSlug($parentSlug, $slug);
 
         if(!$page) {
             return redirect('/');

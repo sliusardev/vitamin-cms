@@ -38,6 +38,8 @@ Route::get('categories/{slug}', [CategoryController::class, 'show'])->name('cate
 
 Route::get('{slug}', [PageController::class, 'show'])->name('page');
 
+Route::get('{parentSlug}/{slug}', [PageController::class, 'showByParent'])->name('page-parent');
+
 
 
 

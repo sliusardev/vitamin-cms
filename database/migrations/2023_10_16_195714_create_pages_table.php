@@ -14,6 +14,11 @@ return new class extends Migration
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('parent_id')
+                ->nullable()
+                ->references('id')
+                ->on('pages')
+                ->onDelete('cascade');
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('short')->nullable();
@@ -22,6 +27,7 @@ return new class extends Migration
             $table->string('thumb')->nullable();
             $table->json('images')->nullable();
             $table->string('template')->nullable();
+            $table->string('type')->nullable();
             $table->boolean('is_enabled')->default(true);
             $table->string('seo_title')->nullable();
             $table->string('seo_text_keys')->nullable();

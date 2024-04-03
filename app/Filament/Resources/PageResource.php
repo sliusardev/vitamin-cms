@@ -112,6 +112,26 @@ class PageResource extends Resource
                                     ->label(trans('dashboard.created'))
                                     ->default(Carbon::now()),
 
+                                Select::make('parent_id')
+                                    ->label(trans('dashboard.parent'))
+                                    ->options(function($record) {
+                                        if($record) {
+                                            return Page::query()
+                                                ->whereNot('id', $record->id)
+                                                ->whereNull('parent_id')
+                                                ->pluck('title', 'id');
+                                        }
+                                        return Page::query()
+                                            ->whereNull('parent_id')
+                                            ->pluck('title', 'id');
+                                    })
+                                    ->searchable(),
+
+                                TextInput::make('order')
+                                    ->label(trans('dashboard.order'))
+                                    ->integer(true)
+                                    ->default(0),
+
                                 Toggle::make('is_enabled')
                                     ->label(trans('dashboard.enabled'))
                                     ->default(true),
@@ -177,6 +197,9 @@ class PageResource extends Resource
                     ->label(trans('dashboard.slug')),
 
                 TextColumn::make('template')
+                    ->sortable(),
+
+                TextColumn::make('parent.title')
                     ->sortable(),
 
                 TextColumn::make('created_at')
