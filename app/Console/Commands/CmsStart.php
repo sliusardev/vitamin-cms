@@ -28,8 +28,8 @@ class CmsStart extends Command
     {
         $this->call('optimize:clear');
         $this->call('key:generate');
-        $this->call('migrate:refresh');
         $this->call('migrate');
+        $this->call('migrate:refresh');
         $this->info("-- migrations done");
         $this->call('optimize:clear');
 
