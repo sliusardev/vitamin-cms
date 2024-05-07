@@ -14,11 +14,17 @@
     <link rel="stylesheet" href="{{asset('themes/medical/css/style.css')}}">
 
     {!! $settings['header_codes'] ?? ''!!}
+    
+    <style>
+        {!! $settings['global_css'] ?? ''!!}
+    </style>
 </head>
 
 @include('themes.medical.partials.header')
 
 <body>
+
+
 
     @yield('content')
 

@@ -21,6 +21,7 @@ use Filament\Pages\Page;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
+use Riodwanto\FilamentAceEditor\AceEditor;
 use Spatie\Valuestore\Valuestore;
 
 class Settings extends Page implements HasForms
@@ -91,6 +92,14 @@ class Settings extends Page implements HasForms
 
                         Tab::make('SEO')
                             ->schema(CustomFieldService::fields('seo_fields')),
+
+                        Tab::make('CSS')
+                            ->schema([
+                                AceEditor::make('global_css')
+                                    ->mode('css')
+                                    ->theme('github')
+                                    ->darkTheme('dracula'),
+                            ]),
 
                         Tab::make('Values')
                             ->schema([
