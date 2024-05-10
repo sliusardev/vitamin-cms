@@ -1,4 +1,4 @@
-@extends('themes.lala.layouts.app', [
+@extends('themes.medical.layouts.app', [
     'sidebar' => false,
     ])
 

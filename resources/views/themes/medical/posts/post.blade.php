@@ -1,4 +1,4 @@
-@extends('themes.lala.layouts.app', [
+@extends('themes.medical.layouts.app', [
     'title' => $post->seo_title ?? $post->title,
     'seoDescription' => $post->seo_description,
     'seoKeyWords' => $post->seo_text_keys,
