@@ -102,6 +102,7 @@ return array (
   'removed' => 'Видалено',
   'role' => 'Роль',
   'roles' => 'Ролі',
+  'see_on_site' => 'Переглянути на сайті',
   'send_notify' => 'Відправляти повідомлення',
   'sent' => 'Sent',
   'seo_description' => 'SEO Опис',

@@ -45,6 +45,7 @@ return array (
   'description' => 'Description',
   'disabled' => 'Disabled',
   'email' => 'Email',
+  'email_verified_at' => 'Email Verified',
   'enabled' => 'Enabled',
   'error_sent' => 'Error Sent',
   'field_name' => 'Field name',
@@ -134,5 +135,5 @@ return array (
   'video_link' => 'Video Link',
   'view' => 'View',
   'views' => 'Views',
-  'email_verified_at' => 'Email Verified',
+  'see_on_site' => 'See on the site',
 );

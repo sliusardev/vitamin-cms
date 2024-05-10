@@ -44,6 +44,10 @@ class Page extends Model
 
     public function link(): string
     {
+        if(!empty($this->parent)) {
+            return route('page-parent', [$this->parent->slug, $this->slug]);
+        }
+
         return route('page', $this->slug);
     }
 

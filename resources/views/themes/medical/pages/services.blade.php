@@ -24,96 +24,108 @@
     <div class="contact-page-info-wrap">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="contact-page-info-item">
-                        <div class="services-page-icon">
-                            <i class="fal fa-eye"></i>
+                @foreach($page->children as $child)
+                    <div class="col-lg-4">
+                        <div class="contact-page-info-item">
+                            <div class="services-page-icon">
+                                <i class="fal fa-eye"></i>
+                            </div>
+                            <span class="services-page-info-item-title">{{$child->title}}</span>
+                            <span class="services-page-info-item-description">{!! $child->short !!}</span>
+                            <a href="{{$child->link()}}" class="load-more">Learn More</a>
                         </div>
-                        <span class="services-page-info-item-title">Glaucoma</span>
-                        <span class="services-page-info-item-description">Vivamus magna justo lacinia eget consectetur sed convallis at tellus. Nulla quis lorem ut libero malesuada feugiat.</span>
-                        <a href="#" class="load-more">Learn More</a>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="contact-page-info-item">
-                        <div class="services-page-icon">
-                            <i class="fal fa-eye"></i>
-                        </div>
-                        <span class="services-page-info-item-title">Amblyopia</span>
-                        <span class="services-page-info-item-description">Vivamus magna justo lacinia eget consectetur sed convallis at tellus. Nulla quis lorem ut libero malesuada feugiat.</span>
-                        <a href="#" class="load-more">Learn More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="contact-page-info-item">
-                        <div class="services-page-icon">
-                            <i class="fal fa-eye"></i>
-                        </div>
-                        <span class="services-page-info-item-title">Strabismus</span>
-                        <span class="services-page-info-item-description">Vivamus magna justo lacinia eget consectetur sed convallis at tellus. Nulla quis lorem ut libero malesuada feugiat.</span>
-                        <a href="#" class="load-more">Learn More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="contact-page-info-item">
-                        <div class="services-page-icon">
-                            <i class="fal fa-eye"></i>
-                        </div>
-                        <span class="services-page-info-item-title">Astigmatism </span>
-                        <span class="services-page-info-item-description">Vivamus magna justo lacinia eget consectetur sed convallis at tellus. Nulla quis lorem ut libero malesuada feugiat. </span>
-                        <a href="#" class="load-more">Learn More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="contact-page-info-item">
-                        <div class="services-page-icon">
-                            <i class="fal fa-eye"></i>
-                        </div>
-                        <span class="services-page-info-item-title">Glaucoma </span>
-                        <span class="services-page-info-item-description">Vivamus magna justo lacinia eget consectetur sed convallis at tellus. Nulla quis lorem ut libero malesuada feugiat. </span>
-                        <a href="#" class="load-more">Learn More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="contact-page-info-item">
-                        <div class="services-page-icon">
-                            <i class="fal fa-eye"></i>
-                        </div>
-                        <span class="services-page-info-item-title">Amblyopia</span>
-                        <span class="services-page-info-item-description">Vivamus magna justo lacinia eget consectetur sed convallis at tellus. Nulla quis lorem ut libero malesuada feugiat.</span>
-                        <a href="#" class="load-more">Learn More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="contact-page-info-item">
-                        <div class="services-page-icon">
-                            <i class="fal fa-eye"></i>
-                        </div>
-                        <span class="services-page-info-item-title">Strabismus</span>
-                        <span class="services-page-info-item-description">Vivamus magna justo lacinia eget consectetur sed convallis at tellus. Nulla quis lorem ut libero malesuada feugiat.</span>
-                        <a href="#" class="load-more">Learn More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="contact-page-info-item">
-                        <div class="services-page-icon">
-                            <i class="fal fa-eye"></i>
-                        </div>
-                        <span class="services-page-info-item-title">Amblyopia</span>
-                        <span class="services-page-info-item-description">Vivamus magna justo lacinia eget consectetur sed convallis at tellus. Nulla quis lorem ut libero malesuada feugiat.</span>
-                        <a href="#" class="load-more">Learn More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="contact-page-info-item">
-                        <div class="services-page-icon">
-                            <i class="fal fa-eye"></i>
-                        </div>
-                        <span class="services-page-info-item-title">Strabismus</span>
-                        <span class="services-page-info-item-description">Vivamus magna justo lacinia eget consectetur sed convallis at tellus. Nulla quis lorem ut libero malesuada feugiat.</span>
-                        <a href="#" class="load-more">Learn More</a>
-                    </div>
-                </div>
+                @endforeach
+{{--                <div class="col-lg-4">--}}
+{{--                    <div class="contact-page-info-item">--}}
+{{--                        <div class="services-page-icon">--}}
+{{--                            <i class="fal fa-eye"></i>--}}
+{{--                        </div>--}}
+{{--                        <span class="services-page-info-item-title">Glaucoma</span>--}}
+{{--                        <span class="services-page-info-item-description">Vivamus magna justo lacinia eget consectetur sed convallis at tellus. Nulla quis lorem ut libero malesuada feugiat.</span>--}}
+{{--                        <a href="#" class="load-more">Learn More</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-4">--}}
+{{--                    <div class="contact-page-info-item">--}}
+{{--                        <div class="services-page-icon">--}}
+{{--                            <i class="fal fa-eye"></i>--}}
+{{--                        </div>--}}
+{{--                        <span class="services-page-info-item-title">Amblyopia</span>--}}
+{{--                        <span class="services-page-info-item-description">Vivamus magna justo lacinia eget consectetur sed convallis at tellus. Nulla quis lorem ut libero malesuada feugiat.</span>--}}
+{{--                        <a href="#" class="load-more">Learn More</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-4">--}}
+{{--                    <div class="contact-page-info-item">--}}
+{{--                        <div class="services-page-icon">--}}
+{{--                            <i class="fal fa-eye"></i>--}}
+{{--                        </div>--}}
+{{--                        <span class="services-page-info-item-title">Strabismus</span>--}}
+{{--                        <span class="services-page-info-item-description">Vivamus magna justo lacinia eget consectetur sed convallis at tellus. Nulla quis lorem ut libero malesuada feugiat.</span>--}}
+{{--                        <a href="#" class="load-more">Learn More</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-4">--}}
+{{--                    <div class="contact-page-info-item">--}}
+{{--                        <div class="services-page-icon">--}}
+{{--                            <i class="fal fa-eye"></i>--}}
+{{--                        </div>--}}
+{{--                        <span class="services-page-info-item-title">Astigmatism </span>--}}
+{{--                        <span class="services-page-info-item-description">Vivamus magna justo lacinia eget consectetur sed convallis at tellus. Nulla quis lorem ut libero malesuada feugiat. </span>--}}
+{{--                        <a href="#" class="load-more">Learn More</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-4">--}}
+{{--                    <div class="contact-page-info-item">--}}
+{{--                        <div class="services-page-icon">--}}
+{{--                            <i class="fal fa-eye"></i>--}}
+{{--                        </div>--}}
+{{--                        <span class="services-page-info-item-title">Glaucoma </span>--}}
+{{--                        <span class="services-page-info-item-description">Vivamus magna justo lacinia eget consectetur sed convallis at tellus. Nulla quis lorem ut libero malesuada feugiat. </span>--}}
+{{--                        <a href="#" class="load-more">Learn More</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-4">--}}
+{{--                    <div class="contact-page-info-item">--}}
+{{--                        <div class="services-page-icon">--}}
+{{--                            <i class="fal fa-eye"></i>--}}
+{{--                        </div>--}}
+{{--                        <span class="services-page-info-item-title">Amblyopia</span>--}}
+{{--                        <span class="services-page-info-item-description">Vivamus magna justo lacinia eget consectetur sed convallis at tellus. Nulla quis lorem ut libero malesuada feugiat.</span>--}}
+{{--                        <a href="#" class="load-more">Learn More</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-4">--}}
+{{--                    <div class="contact-page-info-item">--}}
+{{--                        <div class="services-page-icon">--}}
+{{--                            <i class="fal fa-eye"></i>--}}
+{{--                        </div>--}}
+{{--                        <span class="services-page-info-item-title">Strabismus</span>--}}
+{{--                        <span class="services-page-info-item-description">Vivamus magna justo lacinia eget consectetur sed convallis at tellus. Nulla quis lorem ut libero malesuada feugiat.</span>--}}
+{{--                        <a href="#" class="load-more">Learn More</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-4">--}}
+{{--                    <div class="contact-page-info-item">--}}
+{{--                        <div class="services-page-icon">--}}
+{{--                            <i class="fal fa-eye"></i>--}}
+{{--                        </div>--}}
+{{--                        <span class="services-page-info-item-title">Amblyopia</span>--}}
+{{--                        <span class="services-page-info-item-description">Vivamus magna justo lacinia eget consectetur sed convallis at tellus. Nulla quis lorem ut libero malesuada feugiat.</span>--}}
+{{--                        <a href="#" class="load-more">Learn More</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-lg-4">--}}
+{{--                    <div class="contact-page-info-item">--}}
+{{--                        <div class="services-page-icon">--}}
+{{--                            <i class="fal fa-eye"></i>--}}
+{{--                        </div>--}}
+{{--                        <span class="services-page-info-item-title">Strabismus</span>--}}
+{{--                        <span class="services-page-info-item-description">Vivamus magna justo lacinia eget consectetur sed convallis at tellus. Nulla quis lorem ut libero malesuada feugiat.</span>--}}
+{{--                        <a href="#" class="load-more">Learn More</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
         </div>
     </div>
