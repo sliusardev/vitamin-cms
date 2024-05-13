@@ -48,6 +48,7 @@ class AdminPanelProvider extends PanelProvider
                     ->label(trans('dashboard.see_on_site'))
                     ->icon('heroicon-o-eye')
                     ->url(fn (): string => route('home'))
+                    ->openUrlInNewTab()
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([

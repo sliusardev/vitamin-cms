@@ -19,9 +19,8 @@ class EditPage extends EditRecord
                 ->label(trans('dashboard.see_on_site'))
                 ->icon('heroicon-o-eye')
                 ->color('primary')
-                ->action(function ($record) {
-                    $this->redirect($record->link());
-                })
+                ->url(fn ($record): string => $record->link())
+                ->openUrlInNewTab()
         ];
     }
 }
