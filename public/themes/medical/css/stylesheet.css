@@ -17,7 +17,7 @@
     src: local('Poppins ExtraBold Italic'), local('Poppins-ExtraBoldItalic'),
         url('../fonts/Poppins-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'),
         url('../fonts/Poppins-ExtraBoldItalic.woff') format('woff'),
-        url(../fonts/'Poppins-ExtraBoldItalic.ttf') format('truetype');
+        url('../fonts/Poppins-ExtraBoldItalic.ttf') format('truetype');
     font-weight: 800;
     font-style: italic;
 }
