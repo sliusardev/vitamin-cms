@@ -772,7 +772,84 @@ input.search-field {
 .recent-post {
     margin-bottom: 16px;
 }
+.menu_container {
+    display: none;
+}
+header.mobile {
+    display: none;
+}
 
+@media (max-width: 800px) {
+    .menu_container {
+        text-align: right;
+        display: block;
+    }
+    .main-menu {
+        display: none;
+    }
+    header.mobile .main-logo span {
+        font-size: 24px;
+    }
+    header.mobile a.mobile_menu i {
+        color: #1dbfcc;
+        font-size: 24px;
+    }
+    header.desc {
+        display: none;
+    }
+    header.mobile {
+        padding: 16px 0px;
+        display: block;
+    }
+    .banner-wrap {
+        padding: 40px 0px;
+    }
+    .bunner-title {
+        font-size: 32px;
+    }
+    .bunner-descriptions {
+        font-size: 16px;
+    }
+    .service-wrap {
+        padding: 40px 0px;
+    }
+    .service-img-wrap {
+        margin-right: 8px;
+    }
+    .about-title {
+        font-size: 32px;
+    }
+    .about-descriptions {
+        font-size: 16px;
+    }
+    .about-info-wrap {
+        padding: 16px 0px;
+    }
+    .about-wrap {
+        padding: 0px 0px 40px 0px;
+    }
+    .popular-services {
+        padding: 40px 0px;
+    }
+    span.popular-services-title {
+        font-size: 32px;
+    }
+    span.blog-title {
+        font-size: 32px;
+    }
+    .blog {
+        padding: 40px 0px;
+    }
+    a.about-link {
+        font-size: 16px;
+        padding: 12px 24px;
+    }
+    a.bunner-link {
+        font-size: 16px;
+        padding: 12px 24px;
+    }
+
+}
 
 
 

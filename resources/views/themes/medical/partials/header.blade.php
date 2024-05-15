@@ -1,4 +1,4 @@
-<header>
+<header class="desc">
     <div class="top-info-wrap">
         <div class="container">
             <div class="row">
@@ -53,6 +53,22 @@
                     <div class="col-lg-3">
                         <a href="#" class="appointment-link"> Book An Appointment </a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<header class="mobile">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="main-logo">
+                    <span>Medical cms</span>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="menu_container">
+                    <a href="#" class="mobile_menu"><i class="fal fa-bars"></i></a>
                 </div>
             </div>
         </div>
