@@ -16,7 +16,7 @@ class PostController extends Controller
 
     public function index(Request $request)
     {
-        $posts = $this->postService->getAll(15);
+        $posts = $this->postService->getAll(9);
 
         return themeView('posts.index', compact('posts'));
     }
