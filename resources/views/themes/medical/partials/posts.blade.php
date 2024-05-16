@@ -1,55 +1,36 @@
 
 <div class="row">
     <div class="col-lg-12">
+        <span class="blog-title">News And Blog </span>
+    </div>
+</div>
+<div class="row">
+    @if(!empty($posts))
 
-        @if(!empty($posts))
+        @foreach($posts as $post)
 
-            @foreach($posts as $post)
-
-                <div class="cs-post cs-style1 cs-type1">
-            @if(!empty($post->thumb()))
-                <a href="{{$post->link()}}" class="cs-post__thumb">
-                    <div class="cs-post__thumb__in cs-bg" data-src="{{$post->thumb()}}"></div>
-                </a>
-            @endif
-
-            <div class="cs-post__info">
-
-                <div class="cs-post__meta cs-style1">
-                    <a href="#" class="cs-post__author"><i class="fas fa-calendar"></i>{{$post->date()}}</a>
-                    <div class="cs-post__view"><i class="fas fa-eye"></i>{{$post->views}}</div>
-                    @if(!empty($post->category))
-                        <a href="{{$post->category->link()}}" class="rt-post__comment">
-                            <i class="fas fa-layer-group"></i> {{$post->category->title}}
-                        </a>
-                    @endif
-
-
-                </div>
-
-                <h2 class="cs-post__title mb0">
-                    <a href="{{$post->link()}}">
-                        {{$post->title}}
+            <div class="col-lg-4">
+                <div class="blog-item">
+                    <a href="{{$post->link()}}" class="blog-item-wrap">
+                        <div class="blog-img-wrap">
+                            <img src="{{$post->thumb()}}" alt="" />
+                        </div>
+                        <div class="blog-wrap-info">
+                            <span class="blog-item-info"><i class="fal fa-user"></i>By: {{$post->author()}}</span>
+                            <span class="blog-item-info"><i class="far fa-clock"></i>
+                                    {{$post->date()}}
+                                </span>
+                        </div>
+                        <div class="blog-wrap-text">
+                                <span class="blog-item-title">
+                                    {{$post->title}}
+                                </span>
+                        </div>
                     </a>
-                </h2>
-
-                <div class="cs-post__subtitle">
-                    {!! $post->short !!}
-                </div>
-
-                <div class="cs-post__btn">
-                    <div class="tagcloud">
-                        @foreach($post->tags as $tag)
-                            <a href="{{$tag->link()}}" class="tag-cloud-link">{{$tag->title}}</a>
-                        @endforeach
-                    </div>
                 </div>
             </div>
-        </div>
 
-                <div class="cs-height__40 cs-height__lg__40"></div>
-
-            @endforeach
+        @endforeach
 
             @if(method_exists($posts, 'links'))
 
@@ -66,10 +47,9 @@
                 @endforeach
                     </ul>
                 </div>
-
             @endif
 
          @endif
 
-    </div>
 </div>
+
