@@ -15,5 +15,5 @@
         </ol>
     </nav>
 
-    @includeIf('themes.lala.partials.posts')
+    @includeIf('themes.medical.partials.posts')
 @endsection
