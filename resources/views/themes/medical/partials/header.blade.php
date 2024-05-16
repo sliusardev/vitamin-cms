@@ -34,9 +34,9 @@
             <div class="wrap-main-menu-bg">
                 <div class="row ai">
                     <div class="col-lg-3">
-                        <div class="main-logo">
+                        <a href="{{route('home')}}" class="main-logo">
                             <span>Medical cms</span>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-lg-6">
                         <div class="main-menu">

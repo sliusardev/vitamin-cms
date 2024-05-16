@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\User;
 use App\Services\CustomFieldService;
 use App\Services\SettingService;
 use App\Services\ThemeService;
@@ -12,6 +13,7 @@ use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -49,6 +51,12 @@ class AppServiceProvider extends ServiceProvider
         LanguageSwitch::configureUsing(function (LanguageSwitch $switch) {
             $switch
                 ->locales(['uk','en']); // also accepts a closure
+        });
+
+        Gate::before(function (User $user, string $ability) {
+            if ($user->isAdministrator()) {
+                return true;
+            }
         });
     }
 }

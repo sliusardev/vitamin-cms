@@ -15,6 +15,11 @@
 .top-info-wrap {
     background: #eff8fb;
 }
+
+.main-logo {
+    text-decoration: none;
+}
+
 .main-logo span {
     color: #1dbfcc;
     font-size: 35px;
