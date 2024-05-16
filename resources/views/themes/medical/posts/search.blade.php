@@ -25,6 +25,6 @@
 
     <div class="cs-height__40 cs-height__lg__40"></div>
 
-    @includeIf('themes.lala.partials.posts')
+    @includeIf('themes.medical.partials.posts')
 
 @endsection

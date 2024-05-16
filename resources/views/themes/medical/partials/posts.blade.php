@@ -1,7 +1,12 @@
-@if(!empty($posts))
-    @foreach($posts as $post)
 
-        <div class="cs-post cs-style1 cs-type1">
+<div class="row">
+    <div class="col-lg-12">
+
+        @if(!empty($posts))
+
+            @foreach($posts as $post)
+
+                <div class="cs-post cs-style1 cs-type1">
             @if(!empty($post->thumb()))
                 <a href="{{$post->link()}}" class="cs-post__thumb">
                     <div class="cs-post__thumb__in cs-bg" data-src="{{$post->thumb()}}"></div>
@@ -41,16 +46,16 @@
                 </div>
             </div>
         </div>
-        <div class="cs-height__40 cs-height__lg__40"></div>
-    @endforeach
 
+                <div class="cs-height__40 cs-height__lg__40"></div>
 
+            @endforeach
 
-    @if(method_exists($posts, 'links'))
+            @if(method_exists($posts, 'links'))
 
-        <div class="cs-post__pagination cs-style1">
-            <ul class="page-numbers">
-                @foreach($posts->appends(Request::except('page'))->toArray()['links'] as $paginationItem)
+                <div class="cs-post__pagination cs-style1">
+                    <ul class="page-numbers">
+                        @foreach($posts->appends(Request::except('page'))->toArray()['links'] as $paginationItem)
 
                     <li>
                         <a class="page-numbers @if($paginationItem['active']) current @endif" href="{{$paginationItem['url']}}">
@@ -59,8 +64,12 @@
                     </li>
 
                 @endforeach
-            </ul>
-        </div>
+                    </ul>
+                </div>
 
-    @endif
-@endif
+            @endif
+
+         @endif
+
+    </div>
+</div>

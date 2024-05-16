@@ -26,8 +26,9 @@
 <body>
 
 
-
+<div class="container">
     @yield('content')
+</div>
 
     @include('themes.medical.partials.footer')
 
