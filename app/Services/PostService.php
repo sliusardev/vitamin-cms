@@ -14,7 +14,7 @@ class PostService
     {
         return Post::query()
             ->active()
-            ->with(['category', 'tags'])
+            ->with(['category', 'tags', 'user'])
             ->orderBy('created_at', 'desc')
             ->paginate($paginationCount);
     }
@@ -23,7 +23,7 @@ class PostService
     {
         $post = Post::query()->where('slug', $slug)
             ->active()
-            ->with(['category', 'tags'])
+            ->with(['category', 'tags', 'user'])
             ->first();
 
         if($post) {
@@ -37,7 +37,7 @@ class PostService
     public function getAllByCategorySlug($slug, ?int $paginationCount = 10)
     {
         return Post::query()
-            ->with(['category', 'tags'])
+            ->with(['category', 'tags', 'user'])
             ->active()
             ->whereHas('category', function (Builder $query) use ($slug){
                 $query->where('slug', $slug);
@@ -49,7 +49,7 @@ class PostService
     public function getAllByTagSlug($slug, ?int $paginationCount = 10)
     {
         return Post::query()
-            ->with(['category', 'tags'])
+            ->with(['category', 'tags', 'user'])
             ->active()
             ->whereHas('tags', function (Builder $query) use ($slug){
                 $query->where('slug', $slug);
@@ -68,7 +68,7 @@ class PostService
             });
         }
 
-        return $post->with(['category', 'tags'])->orderBy('views', 'desc')->paginate($paginationCount);
+        return $post->with(['category', 'tags', 'user'])->orderBy('views', 'desc')->paginate($paginationCount);
     }
 
     public function searchByPhrase(string $phrase, ?int $paginationCount = 10)
@@ -78,7 +78,7 @@ class PostService
             ->where('title', 'like', '%'.$phrase.'%')
             ->orWhere('content', 'like', '%'.$phrase.'%')
             ->orWhere('short', 'like', '%'.$phrase.'%')
-            ->with(['category', 'tags'])
+            ->with(['category', 'tags', 'user'])
             ->orderBy('created_at', 'desc')
             ->paginate($paginationCount);
     }

@@ -183,54 +183,28 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4">
-                <div class="blog-item">
-                    <a href="#" class="blog-item-wrap">
-                        <div class="blog-img-wrap">
-                            <img src="{{asset('themes/medical/img/blog-1.jpg')}}" alt="" />
-                        </div>
-                        <div class="blog-wrap-info">
-                            <span class="blog-item-info"><i class="fal fa-user"></i>By: Medical cms</span>
-                            <span class="blog-item-info"><i class="far fa-clock"></i>30 Dec, 2024</span>
-                        </div>
-                        <div class="blog-wrap-text">
-                            <span class="blog-item-title">Discover The Confidence Of Your Skin Treatment </span>
-                        </div>
-                    </a>
+            @foreach($posts as $post)
+                <div class="col-lg-4">
+                    <div class="blog-item">
+                        <a href="{{$post->link()}}" class="blog-item-wrap">
+                            <div class="blog-img-wrap">
+                                <img src="{{$post->thumb()}}" alt="" />
+                            </div>
+                            <div class="blog-wrap-info">
+                                <span class="blog-item-info"><i class="fal fa-user"></i>By: {{$post->author()}}</span>
+                                <span class="blog-item-info"><i class="far fa-clock"></i>
+                                    {{$post->date()}}
+                                </span>
+                            </div>
+                            <div class="blog-wrap-text">
+                                <span class="blog-item-title">
+                                    {{$post->title}}
+                                </span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="blog-item">
-                    <a href="#" class="blog-item-wrap">
-                        <div class="blog-img-wrap">
-                            <img src="{{asset('themes/medical/img/blog-2.jpg')}}" alt="" />
-                        </div>
-                        <div class="blog-wrap-info">
-                            <span class="blog-item-info"><i class="fal fa-user"></i>By: Medical cms</span>
-                            <span class="blog-item-info"><i class="far fa-clock"></i>30 Dec, 2024</span>
-                        </div>
-                        <div class="blog-wrap-text">
-                            <span class="blog-item-title">Everyone Needs To Know The Tips To Get Rid Of Acne Face</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="blog-item">
-                    <a href="#" class="blog-item-wrap">
-                        <div class="blog-img-wrap">
-                            <img src="{{asset('themes/medical/img/blog-3.jpg')}}" alt="" />
-                        </div>
-                        <div class="blog-wrap-info">
-                            <span class="blog-item-info"><i class="fal fa-user"></i>By: Medical cms</span>
-                            <span class="blog-item-info"><i class="far fa-clock"></i>30 Dec, 2024</span>
-                        </div>
-                        <div class="blog-wrap-text">
-                            <span class="blog-item-title">Can You Solve Any Skin Damage Problem?</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

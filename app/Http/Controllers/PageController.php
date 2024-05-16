@@ -19,7 +19,7 @@ class PageController extends Controller
 
     public function index(Request $request)
     {
-        $posts = $this->postService->getAll(15);
+        $posts = $this->postService->getAll(3);
 
         return themeView('index', compact('posts'));
     }

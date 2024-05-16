@@ -61,4 +61,9 @@ class Post extends Model
     {
         return route('post', $this->slug);
     }
+
+    public function author()
+    {
+        return $this->user->name;
+    }
 }
