@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\MenuItem;
 use App\Services\CategoryService;
 use App\Services\ChunkService;
 use App\Services\GalleryService;
@@ -24,6 +25,16 @@ function menuHashLinks(string $hash) {
 
 function menuPositionLinks(string $position) {
     return MenuService::positionLinks($position);
+}
+
+function menuByHash($slug) {
+    $menu = MenuService::byHash($slug);
+    return !empty($menu->menu_items) ? MenuItem::tree($menu->id) : $menu->menu_items ?? [];
+}
+
+function menuByPosition($position) {
+    $menu = MenuService::byPosition($position);
+    return !empty($menu->menu_items) ? MenuItem::tree($menu->id) : $menu->menu_items ?? [];
 }
 
 function galleryHash(string $hash) {

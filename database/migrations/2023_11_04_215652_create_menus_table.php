@@ -16,7 +16,9 @@ return new class extends Migration
             $table->string('title');
             $table->string('hash')->nullable();
             $table->json('links')->nullable();
+            $table->string('position');
             $table->boolean('is_enabled')->default(true);
+            $table->string('locale')->nullable();
             $table->timestamps();
         });
     }
