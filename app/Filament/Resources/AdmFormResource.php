@@ -31,13 +31,13 @@ class AdmFormResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-paper-airplane';
 
-    protected static ?string $navigationGroup = 'Forms';
+    protected static ?string $navigationGroup = 'System';
 
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 3;
 
     public static function getNavigationGroup(): string
     {
-        return trans('dashboard.adm_forms');
+        return trans('dashboard.system');
     }
 
     public static function getNavigationLabel(): string

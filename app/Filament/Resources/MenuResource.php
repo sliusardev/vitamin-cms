@@ -25,13 +25,13 @@ class MenuResource extends Resource
     protected static ?string $model = Menu::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-bars-3';
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 2;
 
-    protected static ?string $navigationGroup = 'View';
+    protected static ?string $navigationGroup = 'System';
 
     public static function getNavigationGroup(): string
     {
-        return trans('dashboard.view');
+        return trans('dashboard.system');
     }
 
     public static function getNavigationLabel(): string

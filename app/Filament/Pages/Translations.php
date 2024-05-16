@@ -41,7 +41,7 @@ class Translations extends Page  implements HasForms
 
     public static function getNavigationGroup(): string
     {
-        return trans('dashboard.view');
+        return trans('dashboard.system');
     }
 
     public function __construct()

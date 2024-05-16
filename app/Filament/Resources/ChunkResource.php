@@ -29,13 +29,13 @@ class ChunkResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-code-bracket-square';
 
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 5;
 
-    protected static ?string $navigationGroup = 'View';
+    protected static ?string $navigationGroup = 'System';
 
     public static function getNavigationGroup(): string
     {
-        return trans('dashboard.view');
+        return trans('dashboard.system');
     }
 
     public static function getNavigationLabel(): string
