@@ -16,25 +16,31 @@
     </nav>
 
     <div class="cs-post cs-style1 cs-type1">
+        <h1 class="cs-post__title mb0">{{$post->title}}</h1>
 
         @if(!empty($post->thumb()))
-            <div class="cs-post__thumb">
-                <div class="cs-post__thumb__in cs-bg" data-src="{{$post->thumb()}}"></div>
+            <div class="blog-img-wrap post-page-img-main">
+                <img src="{{$post->thumb()}}" alt="" />
             </div>
         @endif
 
+        <div class="blog-wrap-info post-page-info-wrap">
+            <span class="blog-item-info"><i class="fal fa-user"></i>By: {{$post->author()}}</span>
+            <span class="blog-item-info"><i class="far fa-clock"></i> {{$post->date()}}</span>
+            <span class="blog-item-info"><i class="fas fa-eye"></i>{{$post->views}}</span>
+        </div>
+
         <div class="cs-post__info">
             <div class="cs-post__meta cs-style1">
-                <a href="#" class="cs-post__author"><i class="fas fa-calendar"></i>{{$post->date()}}</a>
-                <div class="cs-post__view"><i class="fas fa-eye"></i>{{$post->views}}</div>
+
                 @if(!empty($post->category))
                     <a href="{{$post->category->link()}}" class="rt-post__comment">
                         <i class="fas fa-layer-group"></i> {{$post->category->title}}
                     </a>
                 @endif
             </div>
-            <h2 class="cs-post__title mb0">{{$post->title}}</h2>
-            <div class="cs-post__description">
+
+            <div class="page-post-description">
                 {!! $post->content !!}
             </div>
         </div>
@@ -50,16 +56,16 @@
 
             <div class="row">
                 <div class="col-sm-12">
-                    <input type="email" class="cs-form__field" name="email" placeholder="Email Address" required="">
+                    <input type="email" class="cs-form__field page-post-form-input" name="email" placeholder="Email Address" required="">
                     <div class="cs-height__25 cs-height__lg__25"></div>
                 </div>
 
                 <div class="col-sm-12">
-                    <textarea class="cs-form__field" name="content" placeholder="Write Comment" required=""></textarea>
+                    <textarea class="cs-form__field page-post-form-input" name="content" placeholder="Write Comment" required=""></textarea>
                     <div class="cs-height__25 cs-height__lg__25"></div>
                 </div>
                 <div class="col-lg-12">
-                    <button class="cs-btn cs-style1 cs-color1 cs-primary__font w-100" type="submit">Submit Now</button>
+                    <button class="cs-btn cs-style1 cs-color1 cs-primary__font w-100 page-post-form-input" type="submit">Submit Now</button>
                 </div>
             </div>
         </form>

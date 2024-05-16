@@ -32,7 +32,7 @@
 
         @endforeach
 
-            @if(method_exists($posts, 'links'))
+        @if(method_exists($posts, 'links'))
 
                 <div class="cs-post__pagination cs-style1">
                     <ul class="page-numbers">
@@ -49,7 +49,7 @@
                 </div>
             @endif
 
-         @endif
+    @endif
 
 </div>
 
