@@ -7,6 +7,7 @@ use App\Models\Menu;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
@@ -52,39 +53,47 @@ class MenuResource extends Resource
     {
         return $form
             ->schema([
-                Section::make()->schema([
-                    TextInput::make('title')
-                        ->label(trans('dashboard.title'))
-                        ->required(),
+                Tabs::make('Tabs')
+                    ->tabs([
+                        Tabs\Tab::make('Menu Settings')
+                            ->schema([
+                                Section::make()->schema([
+                                    TextInput::make('title')
+                                        ->label(trans('dashboard.title'))
+                                        ->required(),
 
-                    TextInput::make('hash')
-                        ->label(trans('dashboard.link_hash'))
-                        ->default(Str::random(15))
-                        ->disabledOn('edit'),
+                                    TextInput::make('hash')
+                                        ->label(trans('dashboard.link_hash'))
+                                        ->default(Str::random(15))
+                                        ->disabledOn('edit'),
 
-                    Select::make('position')
-                        ->label(trans('dashboard.position'))
-                        ->options(themeSettings()['menu_positions'] ?? []),
+                                    Select::make('position')
+                                        ->label(trans('dashboard.position'))
+                                        ->options(themeSettings()['menu_positions'] ?? []),
 
-                    Repeater::make('links')
-                        ->label(trans('dashboard.links'))
-                        ->schema([
-                            TextInput::make('text')->label(trans('dashboard.text')),
-                            TextInput::make('url')->label(trans('dashboard.url')),
-                            Toggle::make('blank')
-                                ->default(true),
-                            Toggle::make('is_enabled')
-                                ->label(trans('dashboard.enabled'))
-                                ->default(true),
-                        ])
-                        ->columnSpanFull()
-                        ->columns(2),
-
-                    Toggle::make('is_enabled')
-                                    ->label(trans('dashboard.enabled'))
-                        ->columnSpanFull()
-                        ->default(true),
-                ])->columns(2),
+                                    Toggle::make('is_enabled')
+                                        ->label(trans('dashboard.enabled'))
+                                        ->columnSpanFull()
+                                        ->default(true),
+                                ])->columns(2),
+                            ]),
+                        Tabs\Tab::make('Links')
+                            ->schema([
+                                Repeater::make('links')
+                                    ->label(trans('dashboard.links'))
+                                    ->schema([
+                                        TextInput::make('text')->label(trans('dashboard.text')),
+                                        TextInput::make('url')->label(trans('dashboard.url')),
+                                        Toggle::make('blank')
+                                            ->default(true),
+                                        Toggle::make('is_enabled')
+                                            ->label(trans('dashboard.enabled'))
+                                            ->default(true),
+                                    ])
+                                    ->columnSpanFull()
+                                    ->columns(2),
+                            ]),
+                    ])->columnSpanFull(),
             ]);
     }
 
@@ -133,7 +142,7 @@ class MenuResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            MenuResource\RelationManagers\MenuItemsRelationManager::class
         ];
     }
 

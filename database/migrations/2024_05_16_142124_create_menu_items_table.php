@@ -11,14 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('menus', function (Blueprint $table) {
+        Schema::create('menu_items', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('menu_id')->constrained();
+            $table->foreignId('parent_id')
+                ->nullable()
+                ->references('id')
+                ->on('menu_items')
+                ->onDelete('cascade');
+            $table->integer('order')->default(0);
             $table->string('title');
-            $table->string('hash')->nullable();
-            $table->json('links')->nullable();
-            $table->string('position');
+            $table->string('link')->nullable();
             $table->boolean('is_enabled')->default(true);
-            $table->string('locale')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('menu_items');
     }
 };

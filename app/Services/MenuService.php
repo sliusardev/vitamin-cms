@@ -19,4 +19,30 @@ class MenuService
 
         return $menu ? $menu->links : [];
     }
+
+    public static function byHash(string $hash = '')
+    {
+        return Menu::query()
+            ->where('hash', $hash)
+            ->active()
+            ->with('menu_items')->first();
+    }
+
+    public static function byPosition(string $position)
+    {
+        return Menu::query()
+            ->where('position', $position)
+            ->active()
+            ->with('menu_items')
+            ->first();
+    }
+
+    public static function allByPosition(string $position)
+    {
+        return Menu::query()
+            ->where('position', $position)
+            ->active()
+            ->with('menu_items')
+            ->get();
+    }
 }
