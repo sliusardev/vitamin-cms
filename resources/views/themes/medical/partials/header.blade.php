@@ -1,4 +1,5 @@
 <header class="desc">
+
     <div class="top-info-wrap">
         <div class="container">
             <div class="row">
@@ -29,34 +30,39 @@
             </div>
         </div>
     </div>
+
     <div class="menu-main-wrap">
         <div class="container">
             <div class="wrap-main-menu-bg">
                 <div class="row ai">
                     <div class="col-lg-3">
                         <a href="{{route('home')}}" class="main-logo">
-                            <span>Medical cms</span>
+                            <span>{{$settings['site_name']}}</span>
                         </a>
                     </div>
                     <div class="col-lg-6">
                         <div class="main-menu">
                             <ul>
-                                <li><a href="/">Home </a></li>
-                                <li><a href="#">About </a></li>
-                                <li>
-                                    <a href="#">Services <i class="fal fa-chevron-down"></i></a>
-                                    <ul class="sub-menu">
-                                        <li><a href="#">Service 1</a></li>
-                                        <li><a href="#">Service 2</a></li>
-                                        <li><a href="#">Service 3</a></li>
-                                        <li><a href="#">Service 4</a></li>
-                                        <li><a href="#">Service 5</a></li>
-                                        <li><a href="#">Service 6</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Doctors</a></li>
-                                <li><a href="#">News</a></li>
-                                <li><a href="{{route('page', 'contact-us')}}">Contact Us</a></li>
+
+                                @foreach(menuByPosition('top') as $menuItem)
+                                    <li>
+                                        <a href="{{$menuItem->link}}">
+                                            {{$menuItem->title}}
+                                            @if(!$menuItem->sub_item->isEmpty()) <i class="fal fa-chevron-down"></i> @endif
+                                        </a>
+
+                                        @if(!$menuItem->sub_item->isEmpty())
+                                            <ul class="sub-menu">
+                                                @foreach($menuItem->sub_item as $subItem)
+                                                    <li>
+                                                        <a href="{{$subItem->link}}">{{$subItem->title}}</a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        @endif
+
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -67,8 +73,11 @@
             </div>
         </div>
     </div>
+
 </header>
+
 <header class="mobile">
+
     <div class="container">
         <div class="row">
             <div class="col-8">
@@ -133,4 +142,5 @@
             </div>
         </div>
     </div>
+
 </header>
