@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\MenuItem;
+use App\Services\AdmFormService;
 use App\Services\CategoryService;
 use App\Services\ChunkService;
 use App\Services\GalleryService;
@@ -50,4 +51,14 @@ function categories() {
 
 function tags() {
     return TagService::getAll();
+}
+
+function formActionSlug(string $slug): string
+{
+    return AdmFormService::actionBySlug($slug);
+}
+
+function formActionHash(string $hash): string
+{
+    return route('adm-form', $hash);
 }

@@ -46,6 +46,14 @@ class AdmFormService
             ->first();
     }
 
+    public static function bySlug(string $slug)
+    {
+        return AdmForm::query()
+            ->where('slug', $slug)
+            ->with('admFormItems')
+            ->first();
+    }
+
     public static function checkRecaptcha3($gRecaptchaResponse, $ip)
     {
         $checkRecaptchaResponse = Http::asForm()
@@ -58,5 +66,11 @@ class AdmFormService
         $result = $checkRecaptchaResponse->json();
 
         return $result['success'];
+    }
+
+    public static function actionBySlug(string $slug): string
+    {
+        $form = self::bySlug($slug);
+        return route('adm-form', $form->link_hash ?? '');
     }
 }

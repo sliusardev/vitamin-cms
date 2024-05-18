@@ -74,7 +74,8 @@
                 <div class="col-lg-12">
                     <span class="get-in-touch">Get In Touch</span>
                     <div class="form-wrap">
-                        <form action="">
+                        <form action="{{formActionSlug('contact-us-form')}}" method="post">
+                            @csrf
                             <div class="form-items">
                                 <div class="form-item">
                                     <label>Your Name</label>
@@ -88,11 +89,11 @@
                             <div class="form-items">
                                 <div class="form-item">
                                     <label>Your Phone</label>
-                                    <input type="text" name="phone_number" id="phone_number" required="" data-error="Please enter your number" placeholder="Your phone" class="form-control">
+                                    <input type="text" name="phone" id="phone_number" required="" data-error="Please enter your number" placeholder="Your phone" class="form-control">
                                 </div>
                                 <div class="form-item">
                                     <label>Subject</label>
-                                    <input type="text" name="msg_subject" id="msg_subject" required="" data-error="Please enter your subject" placeholder="Subject" class="form-control">
+                                    <input type="text" name="subject" id="msg_subject" required="" data-error="Please enter your subject" placeholder="Subject" class="form-control">
                                 </div>
                             </div>
                             <div class="form-items">
