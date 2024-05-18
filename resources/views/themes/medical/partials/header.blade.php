@@ -43,7 +43,17 @@
                             <ul>
                                 <li><a href="/">Home </a></li>
                                 <li><a href="#">About </a></li>
-                                <li><a href="#">Services <i class="fal fa-chevron-down"></i></a> </li>
+                                <li>
+                                    <a href="#">Services <i class="fal fa-chevron-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">Service 1</a></li>
+                                        <li><a href="#">Service 2</a></li>
+                                        <li><a href="#">Service 3</a></li>
+                                        <li><a href="#">Service 4</a></li>
+                                        <li><a href="#">Service 5</a></li>
+                                        <li><a href="#">Service 6</a></li>
+                                    </ul>
+                                </li>
                                 <li><a href="#">Doctors</a></li>
                                 <li><a href="#">News</a></li>
                                 <li><a href="{{route('page', 'contact-us')}}">Contact Us</a></li>
