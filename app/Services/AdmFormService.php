@@ -15,6 +15,8 @@ class AdmFormService
     public static function sendEmailForItem($item): void
     {
         $email = env('MAIL_FROM_ADDRESS');
+        $status = AdmMailStatusEnum::ERROR_SENT->value;
+
         try {
             $mailData = [
                 'form' => $item->admForm->toArray(),
@@ -22,10 +24,10 @@ class AdmFormService
             ];
 
             Mail::to($email)->send(new AdmFormEmail($mailData));
+
             $status = AdmMailStatusEnum::SENT->value;
         }catch (\Exception $e) {
             Log::error($e->getMessage());
-            $status = AdmMailStatusEnum::ERROR_SENT->value;
         } finally {
             self::updateItemStatus($item->id, $status);
         }
