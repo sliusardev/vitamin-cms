@@ -3,12 +3,15 @@
 namespace App\Filament\Resources\AdmFormResource\RelationManagers;
 
 use App\Enums\AdmMailStatusEnum;
+use App\Services\AdmFormService;
 use Filament\Forms;
 use Filament\Forms\Components\KeyValue;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Notifications\Notification;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
+use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\BadgeColumn;
@@ -74,6 +77,16 @@ class AdmFormItemsRelationManager extends RelationManager
 //                Tables\Actions\CreateAction::make(),
             ])
             ->actions([
+                Action::make('Send')
+                    ->action(function ($record) {
+                        AdmFormService::sendEmailForItem($record);
+                        Notification::make()->title('Sent')
+                            ->success()
+                            ->icon('heroicon-o-bell')
+                            ->send();
+                    } )
+                    ->icon('heroicon-s-paper-airplane')
+                    ->requiresConfirmation(),
                 ViewAction::make(),
                 DeleteAction::make(),
             ])
