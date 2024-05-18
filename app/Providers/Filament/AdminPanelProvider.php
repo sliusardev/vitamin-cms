@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\Backups;
 use App\Services\SettingService;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -69,6 +70,6 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ])->plugin(FilamentSpatieLaravelBackupPlugin::make());
+            ])->plugin(FilamentSpatieLaravelBackupPlugin::make()->usingPage(Backups::class));
     }
 }
