@@ -92,26 +92,31 @@
                 <div class="mobile_menu_container">
                     <div class="mobile_menu_content">
                         <div class="main-logo">
-                            <span>Medical cms</span>
+                            <span>{{$settings['site_name']}}</span>
                         </div>
                         <div class="main-menu-mobile">
                             <ul>
-                                <li><a href="#">Home </a></li>
-                                <li><a href="#">About </a></li>
-                                <li>
-                                    <a href="#" class="toggle-submenu">Services <i class="fal fa-chevron-down arrow"></i></a>
-                                    <ul class="sub-menu">
-                                        <li><a href="#">Service 1</a></li>
-                                        <li><a href="#">Service 2</a></li>
-                                        <li><a href="#">Service 3</a></li>
-                                        <li><a href="#">Service 4</a></li>
-                                        <li><a href="#">Service 5</a></li>
-                                        <li><a href="#">Service 6</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Doctors</a></li>
-                                <li><a href="#">News</a></li>
-                                <li><a href="#">Contact Us</a></li>
+
+                                @foreach(menuByPosition('top') as $menuItem)
+                                    <li>
+                                        <a href="{{$menuItem->link}}" @if(!$menuItem->sub_item->isEmpty()) class="toggle-submenu" @endif>
+                                            {{$menuItem->title}}
+                                            @if(!$menuItem->sub_item->isEmpty()) <i class="fal fa-chevron-down"></i> @endif
+                                        </a>
+
+                                        @if(!$menuItem->sub_item->isEmpty())
+                                            <ul class="sub-menu">
+                                                @foreach($menuItem->sub_item as $subItem)
+                                                    <li>
+                                                        <a href="{{$subItem->link}}">{{$subItem->title}}</a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        @endif
+
+                                    </li>
+                                @endforeach
+
                             </ul>
                         </div>
                         <div class="top-content-wrap mobile">
