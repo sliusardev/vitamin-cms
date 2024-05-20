@@ -34,19 +34,17 @@
 
         @if(method_exists($posts, 'links'))
 
-                <div class="cs-post__pagination cs-style1">
-                    <ul class="page-numbers">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
                         @foreach($posts->appends(Request::except('page'))->toArray()['links'] as $paginationItem)
-
-                    <li>
-                        <a class="page-numbers @if($paginationItem['active']) current @endif" href="{{$paginationItem['url']}}">
-                            {!! $paginationItem['label'] !!}
-                        </a>
-                    </li>
-
-                @endforeach
+                        <li class="page-item">
+                            <a class="page-link @if($paginationItem['active']) active @endif" href="{{$paginationItem['url']}}">
+                                {!! $paginationItem['label'] !!}
+                            </a>
+                        </li>
+                        @endforeach
                     </ul>
-                </div>
+                </nav>
             @endif
 
     @endif
