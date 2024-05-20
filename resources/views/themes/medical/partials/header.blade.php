@@ -67,7 +67,10 @@
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <a href="#" class="appointment-link"> Book An Appointment </a>
+                        <a href="#" class="appointment-link" data-bs-toggle="modal" data-bs-target="#bookAnAppointment">
+                            Book An Appointment
+                        </a>
+                        @includeIf('themes.medical.partials.modals.book-an-appointment')
                     </div>
                 </div>
             </div>
@@ -82,7 +85,7 @@
         <div class="row">
             <div class="col-8">
                 <div class="main-logo">
-                    <span>Medical cms</span>
+                    <span>{{$settings['site_name']}}</span>
                 </div>
             </div>
             <div class="col-4">
