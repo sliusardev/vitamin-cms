@@ -34,7 +34,7 @@
 
         @if(method_exists($posts, 'links'))
 
-                <nav aria-label="Page navigation example">
+                <nav aria-label="Page navigation">
                     <ul class="pagination">
                         @foreach($posts->appends(Request::except('page'))->toArray()['links'] as $paginationItem)
                         <li class="page-item">

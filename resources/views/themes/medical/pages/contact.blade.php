@@ -13,7 +13,7 @@
                 <div class="col-lg-6">
                     <span class="contact-page-title">Contact Us</span>
                     <ul class="breadcrumbs">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="{{route('home')}}">Home</a></li>
                         <span class="breadcrumbs-slash"> / </span>
                         <li><span>Contact Us</span></li>
                     </ul>

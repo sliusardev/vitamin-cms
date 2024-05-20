@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="main-logo">
-                    <span>Medical cms</span>
+                    <span>{{$settings['site_name']}}</span>
                 </div>
                 <a href="#" class="footer-link"><span class="footer-span"> Location: </span> 35 West Dental Street</a>
                 <a href="#" class="footer-link"><span class="footer-span"> Phone: </span> +088 123 654 987</a>
