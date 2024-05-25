@@ -66,7 +66,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-3" id="bookAnAppointmentForm">
                         <a href="#" class="appointment-link" data-bs-toggle="modal" data-bs-target="#bookAnAppointment">
                             Book An Appointment
                         </a>
