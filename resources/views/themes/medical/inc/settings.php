@@ -6,7 +6,9 @@ return [
 
     'menu_positions' => [
         'top' => 'Top Menu',
-        'social' => 'Social Links'
+        'useful_links' => 'Useful Links',
+        'footer_useful_links' => 'Footer Useful Links',
+        'footer_our_services' => 'Footer Our Services',
     ],
 
     'chunk_positions' => [

@@ -18,21 +18,25 @@
             <div class="col-lg-4">
                 <span class="footer-title">Useful Links</span>
                 <ul class="footer-list">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">Appointment</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    @foreach(menuPositionLinks('footer_useful_links') as $link)
+                        <li>
+                            <a href="{{$link['url']}}" @if($link['blank']) target="_blank" @endif>
+                                {{$link['text']}}
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
             <div class="col-lg-4">
                 <span class="footer-title">Our Services</span>
                 <ul class="footer-list">
-                    <li><a href="#">Skin Care</a></li>
-                    <li><a href="#">Needle Mesotherapy</a></li>
-                    <li><a href="#">Laser Treatments</a></li>
-                    <li><a href="#">Skin Resurfacing</a></li>
-                    <li><a href="#">Plastic Surgery</a></li>
+                    @foreach(menuPositionLinks('footer_our_services') as $link)
+                        <li>
+                            <a href="{{$link['url']}}" @if($link['blank']) target="_blank" @endif>
+                                {{$link['text']}}
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
