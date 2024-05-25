@@ -20,7 +20,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="contact-page-img">
-                        <img src="img/page-banner.png" alt="" />
+                        <img src="{{asset('themes/medical/img/page-banner.png')}}" alt="" />
                     </div>
                 </div>
             </div>

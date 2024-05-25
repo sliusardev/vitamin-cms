@@ -1112,6 +1112,25 @@ li.breadcrumb-item a{
 .main-menu a {
     padding: 16px 0px;
 }
+.about-page-title {
+    color: #002345;
+    font-size: 42px;
+    max-width: 640px;
+    font-weight: 700;
+    line-height: 1.2;
+    font-family: "Nunito Sans", sans-serif;
+}
+.about-page-title-wrap {
+    padding: 80px 0px;
+    background-image: url(../img/page-title2.jpg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    margin: 40px 0px;
+}
+.about-wrap.about-template-wrap {
+    padding: 80px 15px;
+}
 
 @media (max-width: 800px){
 
