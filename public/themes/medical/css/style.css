@@ -1144,6 +1144,52 @@ li.breadcrumb-item a{
     display: block;
     padding: 8px 0px;
 }
+.doctor-name {
+    color: #002345;
+    font-size: 24px;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    display: block;
+    margin: 8px 0;
+}
+.doctor-positions {
+    color: #486683;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    display: block;
+    margin: 8px 0px;
+}
+.doctor-socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.doctor-socials a {
+    color: #002345;
+    margin: 0px 8px;
+    display: block;
+    width: 26px;
+    height: 26px;
+    border: 2px solid #000;
+    font-size: 14px;
+    line-height: 26px;
+    text-align: center;
+    border-radius: 6px;
+}
+.doctor-socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 0px;
+}
+.doctor-wrap {
+    text-align: center;
+    margin-bottom: 24px;
+}
+.doctor-wrap img {
+    max-width: 100%;
+}
 
 
 @media (max-width: 800px){
