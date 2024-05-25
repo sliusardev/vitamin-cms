@@ -85,7 +85,7 @@ class MenuResource extends Resource
                                         TextInput::make('text')->label(trans('dashboard.text')),
                                         TextInput::make('url')->label(trans('dashboard.url')),
                                         Toggle::make('blank')
-                                            ->default(true),
+                                            ->default(false),
                                         Toggle::make('is_enabled')
                                             ->label(trans('dashboard.enabled'))
                                             ->default(true),
