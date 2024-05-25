@@ -27,8 +27,8 @@
                 @foreach($page->children as $child)
                     <div class="col-lg-4">
                         <div class="contact-page-info-item">
-                            <div class="services-page-icon">
-                                <i class="fal fa-eye"></i>
+                            <div class="popular-services-img-wrap">
+                                <img src="{{$child->thumb()}}" alt="" />
                             </div>
                             <span class="services-page-info-item-title">{{$child->title}}</span>
                             <span class="services-page-info-item-description">{!! $child->short !!}</span>

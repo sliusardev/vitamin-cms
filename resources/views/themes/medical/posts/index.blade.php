@@ -3,7 +3,7 @@
     ])
 
 @section('content')
-
+<div class="container">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('home')}}">Головна</a></li>
@@ -14,5 +14,6 @@
     </nav>
 
     @includeIf('themes.medical.partials.posts')
+</div>
 
 @endsection

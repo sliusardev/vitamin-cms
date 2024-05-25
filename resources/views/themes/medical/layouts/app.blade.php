@@ -35,8 +35,9 @@
         </div>
     @endif
 
-    @yield('content')
 </div>
+
+    @yield('content')
 
     @include('themes.medical.partials.footer')
 
