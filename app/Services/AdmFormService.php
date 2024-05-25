@@ -73,6 +73,11 @@ class AdmFormService
     public static function actionBySlug(string $slug): string
     {
         $form = self::bySlug($slug);
+
+        if(!$form)  {
+            return '';
+        }
+
         return route('adm-form', $form->link_hash ?? '');
     }
 }

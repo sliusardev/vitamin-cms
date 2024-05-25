@@ -45,6 +45,6 @@ class AdmFormController extends Controller
             AdmFormService::sendEmailForItem($item);
         }
 
-        return back()->with('adm_form_success', 'Sent. Thank you!');
+        return back()->with('success', 'Sent. Thank you!');
     }
 }
