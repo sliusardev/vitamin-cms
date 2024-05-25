@@ -5,6 +5,7 @@ use App\Services\AdmFormService;
 use App\Services\CategoryService;
 use App\Services\ChunkService;
 use App\Services\GalleryService;
+use App\Services\PostService;
 use App\Services\SettingService;
 use App\Services\ThemeService;
 use App\Services\MenuService;
@@ -61,4 +62,9 @@ function formActionSlug(string $slug): string
 function formActionHash(string $hash): string
 {
     return route('adm-form', $hash);
+}
+
+function getRecentPosts()
+{
+    return PostService::recentPosts();
 }

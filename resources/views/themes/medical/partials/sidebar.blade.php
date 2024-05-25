@@ -10,33 +10,17 @@
     <div class="recent-posts-wrap">
         <span class="recent-posts-title">Recent posts</span>
         <div class="recent-posts">
-            <div class="recent-post">
-                <div class="recent-post-img">
-                    <img src="{{asset('themes/medical/img/blog-1-1.jpg')}}" alt="" />
+            @foreach(getRecentPosts() as $item)
+                <div class="recent-post">
+                    <div class="recent-post-img">
+                        <img src="{{$item->thumb()}}" alt="" />
+                    </div>
+                    <div class="recent-post-content">
+                        <span class="recent-post-date">{{$item->date()}}</span>
+                        <a href="{{$item->link()}}" class="recent-post-title">{{$item->title}}</a>
+                    </div>
                 </div>
-                <div class="recent-post-content">
-                    <span class="recent-post-date">Nov 27, 2024</span>
-                    <a href="#" class="recent-post-title">New Technology Make for Dental Operation</a>
-                </div>
-            </div>
-            <div class="recent-post">
-                <div class="recent-post-img">
-                    <img src="{{asset('themes/medical/img/blog-2-2.jpg')}}" alt="" />
-                </div>
-                <div class="recent-post-content">
-                    <span class="recent-post-date">Nov 26, 2024</span>
-                    <a href="#" class="recent-post-title">Regular Dental care make Your Smile Brighter</a>
-                </div>
-            </div>
-            <div class="recent-post">
-                <div class="recent-post-img">
-                    <img src="{{asset('themes/medical/img/blog-3-3.jpg')}}" alt="" />
-                </div>
-                <div class="recent-post-content">
-                    <span class="recent-post-date">Nov 25, 2024</span>
-                    <a href="#" class="recent-post-title">Dental Hygiene for All Age to Make Smile</a>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     <div class="popular-tags-wrap">

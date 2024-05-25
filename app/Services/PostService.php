@@ -82,4 +82,13 @@ class PostService
             ->orderBy('created_at', 'desc')
             ->paginate($paginationCount);
     }
+
+    public static function recentPosts(int $limit = 5)
+    {
+        return Post::query()
+            ->active()
+            ->select('id', 'title', 'slug', 'thumb', 'short', 'created_at' )
+            ->orderBy('created_at', 'desc')
+            ->limit($limit)->get();
+    }
 }
