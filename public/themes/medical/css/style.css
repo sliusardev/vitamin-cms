@@ -1,3 +1,9 @@
+.medical-bg {
+    background: #1dbfcc;
+    color: #fff;
+    border-color: #20b7c2;
+}
+
 .top-content-wrap {
     display: flex;
     justify-content: space-between;
