@@ -39,13 +39,11 @@ class PostController extends Controller
     {
         $phrase = $request->get('s');
 
+        $posts = [];
 
-        if(!$phrase) {
-            return redirect('/');
+        if($phrase) {
+            $posts = $this->postService->searchByPhrase($phrase, 15);
         }
-
-        $posts = $this->postService->searchByPhrase($phrase, 15);
-
 
         return themeView('posts.search', compact('posts', 'phrase'));
     }

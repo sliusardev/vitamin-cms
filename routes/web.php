@@ -21,9 +21,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('cms-welcome', 'welcome');
 
-Route::get('/post-search', [PostController::class, 'search'])->name('post-search');
+
 Route::post('/adm-form/{link_hash}', [AdmFormController::class, 'form'])->name('adm-form');
 Route::post('/add-comment', [CommentController::class, 'store'])->name('add-comment');
+Route::get('/post-search', [PostController::class, 'search'])->name('post-search');
 
 Route::get('/', [PageController::class, 'index'])->name('home');
 
@@ -39,6 +40,8 @@ Route::get('categories/{slug}', [CategoryController::class, 'show'])->name('cate
 Route::get('{slug}', [PageController::class, 'show'])->name('page');
 
 Route::get('{parentSlug}/{slug}', [PageController::class, 'showByParent'])->name('page-parent');
+
+
 
 
 

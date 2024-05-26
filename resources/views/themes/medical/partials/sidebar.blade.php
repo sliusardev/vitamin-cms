@@ -1,7 +1,7 @@
 
 <div class="search-wrap">
-    <form novalidate="" class="search-post">
-        <input type="search" placeholder="Search..." class="search-field">
+    <form action="{{route('post-search')}}" class="search-post">
+        <input type="search" placeholder="Search..." class="search-field" name="s">
         <button type="submit">
             <i class="fas fa-search"></i>
         </button>
