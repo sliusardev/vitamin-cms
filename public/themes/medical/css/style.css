@@ -57,7 +57,7 @@ body {
     text-decoration: none;
 }
 .main-menu li {
-    margin-right: 32px;
+    margin-right: 28px;
 }
 .ai {
     align-items: center;
@@ -651,7 +651,10 @@ a.about-link:hover {
 }
 .page-single-img-wrap img {
     max-width: 100%;
-    border-radius: 12px;
+    max-height: 380px;
+    width: 100%;
+    object-fit: cover;
+    padding: 36px 0;
 }
 .page-single-content-wrap p {
     color: #486683;
@@ -1112,6 +1115,82 @@ li.breadcrumb-item a{
 .main-menu a {
     padding: 16px 0px;
 }
+.about-page-title {
+    color: #002345;
+    font-size: 42px;
+    max-width: 640px;
+    font-weight: 700;
+    line-height: 1.2;
+    font-family: "Nunito Sans", sans-serif;
+}
+.about-page-title-wrap {
+    padding: 120px 0px;
+    background-image: url(../img/page-title2.jpg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    margin: 40px 0px 0px;
+}
+.main-menu a i.fal.fa-chevron-down {
+    margin-left: 8px;
+}
+.sub-menu li:hover{
+    background: #eff8fb;
+}
+.about-wrap.about-template-wrap {
+    padding: 80px 15px;
+}
+.main-menu ul.sub-menu a {
+    display: block;
+    padding: 8px 0px;
+}
+.doctor-name {
+    color: #002345;
+    font-size: 24px;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    display: block;
+    margin: 8px 0;
+}
+.doctor-positions {
+    color: #486683;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    display: block;
+    margin: 8px 0px;
+}
+.doctor-socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.doctor-socials a {
+    color: #002345;
+    margin: 0px 8px;
+    display: block;
+    width: 26px;
+    height: 26px;
+    border: 2px solid #000;
+    font-size: 14px;
+    line-height: 26px;
+    text-align: center;
+    border-radius: 6px;
+}
+.doctor-socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 0px;
+}
+.doctor-wrap {
+    text-align: center;
+    margin-bottom: 24px;
+}
+.doctor-wrap img {
+    max-width: 100%;
+}
+
 
 @media (max-width: 800px){
 

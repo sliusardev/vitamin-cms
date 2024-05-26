@@ -26,13 +26,12 @@
     <div class="page-single">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <div class="page-single-img-wrap">
                         <img src="{{$page->thumb()}}" alt="" />
                     </div>
                     <div class="page-single-content-wrap">{!! $page->content !!}</div>
                 </div>
-                @include('themes.medical.partials.sidebar')
             </div>
         </div>
     </div>

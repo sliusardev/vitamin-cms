@@ -1,4 +1,4 @@
-
+<div class="container"></div>
 <div class="row">
     <div class="col-lg-12">
         <span class="blog-title">News And Blog </span>

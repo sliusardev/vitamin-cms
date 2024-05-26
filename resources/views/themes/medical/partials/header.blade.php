@@ -84,9 +84,9 @@
     <div class="container">
         <div class="row">
             <div class="col-8">
-                <div class="main-logo">
+                <a href="{{route('home')}}" class="main-logo">
                     <span>{{$settings['site_name']}}</span>
-                </div>
+                </a>
             </div>
             <div class="col-4">
                 <div class="menu_container">
