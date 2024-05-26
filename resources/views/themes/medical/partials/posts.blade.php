@@ -32,7 +32,7 @@
 
         @endforeach
 
-        @if(method_exists($posts, 'links'))
+        @if(method_exists($posts, 'links') && $posts->hasPages())
 
                 <nav aria-label="Page navigation">
                     <ul class="pagination">
