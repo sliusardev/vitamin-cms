@@ -26,10 +26,8 @@
 <div class="popular-tags-wrap">
     <span class="popular-tags-title">Popular Tags</span>
     <div class="popular-tags">
-        <a href="#" class="tag-link">Business</a>
-        <a href="#" class="tag-link">Privacy</a>
-        <a href="#" class="tag-link">Technology</a>
-        <a href="#" class="tag-link">Tips</a>
-        <a href="#" class="tag-link">Uncategorized</a>
+        @foreach(tags() as $tag)
+            <a href="{{route('tag', $tag->slug)}}" class="tag-link">{{$tag->title}}</a>
+        @endforeach
     </div>
 </div>
