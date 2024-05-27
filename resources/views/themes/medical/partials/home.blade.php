@@ -76,7 +76,7 @@
                     <span class="about-sub-title"># About Treatment</span>
                     <div class="about-title">We Carefully Manage The Treatment Of Our Patients In The Clinical Environment</div>
                     <div class="about-descriptions">Vivamus magna justo lacinia eget consectetur sed convallis at tellus. Nulla quis lorem ut libero malesuada feugiat. Curabitur aliquet quam id dui posuere blandit. Quisque velit nisi pretium ut lacinia in elementum id enim. Donec sollicitudin molestie malesuada. Curabitur arcu erat accumsan id imperdiet et porttitor at sem.</div>
-                    <a href="#" class="about-link">Learn More</a>
+                    <a href="/about" class="about-link">Learn More</a>
                 </div>
             </div>
         </div>
