@@ -5,7 +5,7 @@
                 <span class="bunner-sub-title"># Skin Treatment</span>
                 <div class="bunner-title">Every Day Take Care In Your Own Skin</div>
                 <div class="bunner-descriptions">No matter what your skin concerns we have an experienced professional doctor to give you the best results for your skin.</div>
-                <a href="#" class="bunner-link">View Our Services</a>
+                <a href="/services" class="bunner-link">View Our Services</a>
             </div>
         </div>
     </div>
