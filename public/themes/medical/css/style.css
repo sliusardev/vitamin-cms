@@ -1190,6 +1190,9 @@ li.breadcrumb-item a{
 .doctor-wrap img {
     max-width: 100%;
 }
+.page-single-content-wrap p img {
+    padding: 12px;
+}
 
 
 @media (max-width: 800px){
