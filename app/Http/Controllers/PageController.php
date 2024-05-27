@@ -20,8 +20,9 @@ class PageController extends Controller
     public function index(Request $request)
     {
         $posts = $this->postService->getAll(3);
+        $services = $this->pageService->getOneBySlug('services');
 
-        return themeView('index', compact('posts'));
+        return themeView('index', compact('posts', 'services'));
     }
 
     public function show(Request $request, $slug)

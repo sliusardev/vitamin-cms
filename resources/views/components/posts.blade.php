@@ -10,7 +10,7 @@
                 <a href="{{$post->link()}}">
                     <h3 class="card-title">{{$post->title}}</h3>
                 </a>
-                <p class="card-text">{!! $post->short !!}</p>
+                <p class="card-text">{!! $post->short ?? '' !!}</p>
                 <div class="d-flex justify-content-between p-2">
                     <div>
                         @if(!empty($post->category))

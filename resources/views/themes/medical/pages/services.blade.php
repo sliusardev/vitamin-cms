@@ -31,7 +31,7 @@
                                 <img src="{{$child->thumb()}}" alt="" />
                             </div>
                             <span class="services-page-info-item-title">{{$child->title}}</span>
-                            <span class="services-page-info-item-description">{!! $child->short !!}</span>
+                            <span class="services-page-info-item-description">{!! $child->short ?? '' !!}</span>
                             <a href="{{$child->link()}}" class="load-more">Learn More</a>
                         </div>
                     </div>

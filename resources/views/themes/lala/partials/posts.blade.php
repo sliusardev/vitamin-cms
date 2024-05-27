@@ -29,7 +29,7 @@
                 </h2>
 
                 <div class="cs-post__subtitle">
-                    {!! $post->short !!}
+                    {!! $post->short ?? '' !!}
                 </div>
 
                 <div class="cs-post__btn">

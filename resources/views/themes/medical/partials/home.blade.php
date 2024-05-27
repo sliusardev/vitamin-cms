@@ -83,96 +83,39 @@
     </div>
 </div>
 
-<div class="popular-services">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <span class="popular-services-sub"># Skin Care Treatments </span>
-                <span class="popular-services-title">Our Most Popular Services </span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="popular-services-item">
-                    <a href="#" class="popular-services-item-wrap">
-                        <div class="popular-services-img-wrap">
-                            <img src="{{asset('themes/medical/img/services-1.jpg')}}" alt="" />
-                        </div>
-                        <div class="popular-services-wrap-text">
-                            <span class="popular-services-item-title"> Skin Care </span>
-                            <span class="popular-services-item-description">Proin eget tortor risus vivamus suscipit tortor eget felis porttitor volutpat cras ultricies ligula sed magna dictum porta.</span>
-                        </div>
-                    </a>
+@if($services)
+    <div class="popular-services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <span class="popular-services-sub"># Skin Care Treatments </span>
+                    <span class="popular-services-title">Our Most Popular Services </span>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="popular-services-item">
-                    <a href="#" class="popular-services-item-wrap">
-                        <div class="popular-services-img-wrap">
-                            <img src="{{asset('themes/medical/img/services-2.jpg')}}" alt="" />
+            <div class="row">
+
+                    @foreach($services->children as $service)
+                        <div class="col-lg-4">
+                            <div class="popular-services-item">
+                                <a href="{{$service->link()}}" class="popular-services-item-wrap">
+                                    <div class="popular-services-img-wrap">
+                                        <img src="{{$service->thumb()}}" alt="" />
+                                    </div>
+                                    <div class="popular-services-wrap-text">
+                                        <span class="popular-services-item-title">{{$service->title}}</span>
+                                        <span class="popular-services-item-description">
+                                            {!! $child->short ?? ''!!}
+                                        </span>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                        <div class="popular-services-wrap-text">
-                            <span class="popular-services-item-title"> Needle Mesotherapy </span>
-                            <span class="popular-services-item-description">Proin eget tortor risus vivamus suscipit tortor eget felis porttitor volutpat cras ultricies ligula sed magna dictum porta.</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="popular-services-item">
-                    <a href="#" class="popular-services-item-wrap">
-                        <div class="popular-services-img-wrap">
-                            <img src="{{asset('themes/medical/img/services-3.jpg')}}" alt="" />
-                        </div>
-                        <div class="popular-services-wrap-text">
-                            <span class="popular-services-item-title">  Hair Removal </span>
-                            <span class="popular-services-item-description">Proin eget tortor risus vivamus suscipit tortor eget felis porttitor volutpat cras ultricies ligula sed magna dictum porta.</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="popular-services-item">
-                    <a href="#" class="popular-services-item-wrap">
-                        <div class="popular-services-img-wrap">
-                            <img src="{{asset('themes/medical/img/services-4.jpg')}}" alt="" />
-                        </div>
-                        <div class="popular-services-wrap-text">
-                            <span class="popular-services-item-title">  Laser Treatments  </span>
-                            <span class="popular-services-item-description">Proin eget tortor risus vivamus suscipit tortor eget felis porttitor volutpat cras ultricies ligula sed magna dictum porta.</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="popular-services-item">
-                    <a href="#" class="popular-services-item-wrap">
-                        <div class="popular-services-img-wrap">
-                            <img src="{{asset('themes/medical/img/services-5.jpg')}}" alt="" />
-                        </div>
-                        <div class="popular-services-wrap-text">
-                            <span class="popular-services-item-title"> Skin Resurfacing </span>
-                            <span class="popular-services-item-description">Proin eget tortor risus vivamus suscipit tortor eget felis porttitor volutpat cras ultricies ligula sed magna dictum porta.</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="popular-services-item">
-                    <a href="#" class="popular-services-item-wrap">
-                        <div class="popular-services-img-wrap">
-                            <img src="{{asset('themes/medical/img/services-6.jpg')}}" alt="" />
-                        </div>
-                        <div class="popular-services-wrap-text">
-                            <span class="popular-services-item-title">  Plastic Surgery </span>
-                            <span class="popular-services-item-description">Proin eget tortor risus vivamus suscipit tortor eget felis porttitor volutpat cras ultricies ligula sed magna dictum porta.</span>
-                        </div>
-                    </a>
-                </div>
+                    @endforeach
+
             </div>
         </div>
     </div>
-</div>
+@endif
 
 <div class="blog">
     <div class="container">
