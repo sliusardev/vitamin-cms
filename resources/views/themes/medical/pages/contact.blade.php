@@ -44,7 +44,7 @@
                             <i class="far fa-paper-plane"></i>
                         </div>
                         <span class="contact-page-info-item-title">Email Address:</span>
-                        <span class="contact-page-info-item-description">hello@inba.com support@inba.com</span>
+                        <span class="contact-page-info-item-description">hellotest@gmail.com</span>
                     </div>
                 </div>
                 <div class="col-lg-3">
@@ -53,7 +53,7 @@
                             <i class="far fa-phone-alt"></i>
                         </div>
                         <span class="contact-page-info-item-title">Phone Number:</span>
-                        <span class="contact-page-info-item-description"> +01 321 654 214 </br>  (+62)81 4891 1562 </span>
+                        <span class="contact-page-info-item-description"> +01 111 654 456 </br>  (+1)81 5567 9876 </span>
                     </div>
                 </div>
                 <div class="col-lg-3">
