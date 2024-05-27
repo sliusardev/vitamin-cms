@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="service-item">
-                    <a href="#" class="service-item-wrap">
+                    <a href="/safety-technology" class="service-item-wrap">
                         <div class="service-img-wrap">
                             <img src="{{asset('themes/medical/img/microscope.png')}}" alt="" />
                         </div>
@@ -27,7 +27,7 @@
             </div>
             <div class="col-lg-4">
                 <div class="service-item">
-                    <a href="#" class="service-item-wrap">
+                    <a href="/experienced-team" class="service-item-wrap">
                         <div class="service-img-wrap">
                             <img src="{{asset('themes/medical/img/medical-doctor.png')}}" alt="" />
                         </div>
@@ -38,7 +38,7 @@
             </div>
             <div class="col-lg-4">
                 <div class="service-item">
-                    <a href="#" class="service-item-wrap">
+                    <a href="/modern-equipment" class="service-item-wrap">
                         <div class="service-img-wrap">
                             <img src="{{asset('themes/medical/img/medical-tool.png')}}" alt="" />
                         </div>
