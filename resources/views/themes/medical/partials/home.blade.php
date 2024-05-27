@@ -104,7 +104,7 @@
                                     <div class="popular-services-wrap-text">
                                         <span class="popular-services-item-title">{{$service->title}}</span>
                                         <span class="popular-services-item-description">
-                                            {!! $child->short ?? ''!!}
+                                            {!! $service->short ?? '' !!}
                                         </span>
                                     </div>
                                 </a>
