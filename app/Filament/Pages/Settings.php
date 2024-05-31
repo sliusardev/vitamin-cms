@@ -7,7 +7,6 @@ use App\Services\SettingService;
 use App\Services\ThemeService;
 use Filament\Actions\Action;
 use Filament\Forms\Components\KeyValue;
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\Tabs\Tab;
@@ -20,13 +19,13 @@ use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Str;
 use Riodwanto\FilamentAceEditor\AceEditor;
 use Spatie\Valuestore\Valuestore;
 
 class Settings extends Page implements HasForms
 {
     use InteractsWithForms;
+
     protected static ?string $navigationIcon = 'heroicon-o-adjustments-vertical';
 
     protected static string $view = 'filament.pages.settings';

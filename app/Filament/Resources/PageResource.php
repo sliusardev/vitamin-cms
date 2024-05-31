@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Actions\Filament\ActionCmsTranslationMapper;
 use App\Filament\Resources\PageResource\Pages;
 use App\Filament\Resources\PageResource\RelationManagers;
 use App\Models\Page;
@@ -134,6 +135,10 @@ class PageResource extends Resource
                                     ->integer(true)
                                     ->default(0),
 
+                                Select::make('locale')
+                                    ->label(trans('dashboard.locale'))
+                                    ->options(cmsLocales()),
+
                                 Toggle::make('is_enabled')
                                     ->label(trans('dashboard.enabled'))
                                     ->default(true),
@@ -204,6 +209,10 @@ class PageResource extends Resource
                 TextColumn::make('parent.title')
                     ->sortable(),
 
+                TextColumn::make('locale')
+                    ->label(trans('dashboard.locale'))
+                    ->sortable(),
+
                 TextColumn::make('created_at')
                     ->label(trans('dashboard.created'))
                     ->dateTime('d.m.Y H:i')
@@ -218,13 +227,14 @@ class PageResource extends Resource
             ->actions([
                 ActionGroup::make([
                     Tables\Actions\EditAction::make(),
-                    Tables\Actions\DeleteAction::make(),
+                    ActionCmsTranslationMapper::make(),
                     Action::make('see_on_site')
                         ->label(trans('dashboard.see_on_site'))
                         ->icon('heroicon-o-eye')
                         ->color('primary')
                         ->url(fn ($record): string => $record->link())
-                        ->openUrlInNewTab()
+                        ->openUrlInNewTab(),
+                    Tables\Actions\DeleteAction::make(),
                 ]),
 
             ])

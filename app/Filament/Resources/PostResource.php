@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Actions\Filament\ActionCmsTranslationMapper;
 use App\Filament\Resources\PostResource\Pages;
 use App\Filament\Resources\PostResource\RelationManagers;
 use App\Models\Post;
@@ -21,6 +22,8 @@ use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\Action;
+use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Filters\Filter;
@@ -131,6 +134,10 @@ class PostResource extends Resource
 
                                     ]),
 
+                                Select::make('locale')
+                                    ->label(trans('dashboard.locale'))
+                                    ->options(cmsLocales()),
+
                                 Toggle::make('is_enabled')
                                     ->label(trans('dashboard.enabled'))
                                     ->default(true),
@@ -199,6 +206,10 @@ class PostResource extends Resource
                 TextColumn::make('slug')
                     ->label(trans('dashboard.slug')),
 
+                TextColumn::make('locale')
+                    ->label(trans('dashboard.locale'))
+                    ->sortable(),
+
                 TextColumn::make('created_at')
                     ->label(trans('dashboard.created'))
                     ->dateTime('d.m.Y H:i')
@@ -211,8 +222,17 @@ class PostResource extends Resource
                     ->toggle(),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                ActionGroup::make([
+                    Tables\Actions\EditAction::make(),
+                    ActionCmsTranslationMapper::make(),
+                    Action::make('see_on_site')
+                        ->label(trans('dashboard.see_on_site'))
+                        ->icon('heroicon-o-eye')
+                        ->color('primary')
+                        ->url(fn ($record): string => $record->link())
+                        ->openUrlInNewTab(),
+                    Tables\Actions\DeleteAction::make(),
+                ]),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

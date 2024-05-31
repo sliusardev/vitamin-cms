@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\ContentTrait;
+use App\Traits\HasCmsTranslationTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,6 +13,7 @@ class Page extends Model
 {
     use HasFactory;
     use ContentTrait;
+    use HasCmsTranslationTrait;
 
     protected $fillable = [
         'user_id',
@@ -24,6 +26,7 @@ class Page extends Model
         'custom_fields',
         'thumb',
         'images',
+        'locale',
         'is_enabled',
         'seo_title',
         'seo_text_keys',

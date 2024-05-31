@@ -68,3 +68,13 @@ function getRecentPosts()
 {
     return PostService::recentPosts();
 }
+
+function cmsLocales()
+{
+    return config('cms.locales');
+}
+
+function cmsLocalesKeys(): array
+{
+    return array_keys(cmsLocales());
+}

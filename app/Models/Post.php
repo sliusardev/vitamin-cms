@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\ContentTrait;
+use App\Traits\HasCmsTranslationTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -13,6 +14,7 @@ class Post extends Model
 {
     use HasFactory;
     use ContentTrait;
+    use HasCmsTranslationTrait;
 
     protected $fillable = [
         'user_id',
@@ -29,6 +31,7 @@ class Post extends Model
         'seo_text_keys',
         'seo_description',
         'views',
+        'locale',
         'created_at'
     ];
 
