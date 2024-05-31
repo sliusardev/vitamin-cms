@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Actions\Filament\ActionCmsTranslationMapper;
 use App\Filament\Resources\CategoryResource\Pages;
 use App\Filament\Resources\CategoryResource\RelationManagers;
 use App\Models\Category;
@@ -20,6 +21,8 @@ use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\Action;
+use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Filters\Filter;
@@ -105,6 +108,10 @@ class CategoryResource extends Resource
                                         if($record) {
                                             return Category::query()
                                                 ->whereNot('id', $record->id)
+                                                ->where(function ($query) use ($record) {
+                                                    $query->whereNull('locale')
+                                                        ->orWhere('locale', $record->locale);
+                                                })
                                                 ->pluck('title', 'id');
                                         }
                                         return Category::query()
@@ -115,6 +122,10 @@ class CategoryResource extends Resource
                                 DateTimePicker::make('created_at')
                                     ->label(trans('dashboard.created'))
                                     ->default(Carbon::now()),
+
+                                Select::make('locale')
+                                    ->label(trans('dashboard.locale'))
+                                    ->options(cmsLocales()),
 
                                 Toggle::make('is_enabled')
                                     ->label(trans('dashboard.enabled'))
@@ -163,6 +174,10 @@ class CategoryResource extends Resource
                 TextColumn::make('parent.title')
                     ->sortable(),
 
+                TextColumn::make('locale')
+                    ->label(trans('dashboard.locale'))
+                    ->sortable(),
+
                 TextColumn::make('created_at')
                     ->label(trans('dashboard.created'))
                     ->dateTime('d.m.Y H:i')
@@ -175,8 +190,17 @@ class CategoryResource extends Resource
                     ->toggle(),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                ActionGroup::make([
+                    Tables\Actions\EditAction::make(),
+                    ActionCmsTranslationMapper::make(),
+                    Action::make('see_on_site')
+                        ->label(trans('dashboard.see_on_site'))
+                        ->icon('heroicon-o-eye')
+                        ->color('primary')
+                        ->url(fn ($record): string => $record->link())
+                        ->openUrlInNewTab(),
+                    Tables\Actions\DeleteAction::make(),
+                ]),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

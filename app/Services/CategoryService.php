@@ -8,7 +8,7 @@ class CategoryService
 {
     public function getOneBySlug($slug)
     {
-        return Category::query()->where('slug', $slug)->active()->first();
+        return Category::query()->where('slug', $slug)->active()->locale()->first();
     }
 
     public static function getAllParents()
@@ -17,6 +17,7 @@ class CategoryService
             ->whereNull('parent_id')
             ->withCount('posts')
             ->active()
+            ->locale()
             ->orderby('order')
             ->get();
     }

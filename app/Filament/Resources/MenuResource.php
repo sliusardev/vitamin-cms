@@ -71,6 +71,10 @@ class MenuResource extends Resource
                                         ->label(trans('dashboard.position'))
                                         ->options(themeSettings()['menu_positions'] ?? []),
 
+                                    Select::make('locale')
+                                        ->label(trans('dashboard.locale'))
+                                        ->options(cmsLocales()),
+
                                     Toggle::make('is_enabled')
                                         ->label(trans('dashboard.enabled'))
                                         ->columnSpanFull()
@@ -119,8 +123,13 @@ class MenuResource extends Resource
                     ->date()
                     ->sortable(),
 
+                TextColumn::make('locale')
+                    ->label(trans('dashboard.locale'))
+                    ->sortable(),
+
                 ToggleColumn::make('is_enabled')
                     ->label(trans('dashboard.enabled')),
+
             ])
             ->filters([
                 Filter::make('only_enabled')

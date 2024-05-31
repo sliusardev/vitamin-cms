@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\ContentTrait;
+use App\Traits\HasCmsTranslationTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -10,8 +11,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Category extends Model
 {
-    use ContentTrait;
     use HasFactory;
+    use ContentTrait;
+    use HasCmsTranslationTrait;
 
     protected $fillable = [
         'parent_id',
@@ -20,6 +22,7 @@ class Category extends Model
         'order',
         'content',
         'thumb',
+        'locale',
         'is_enabled',
     ];
 

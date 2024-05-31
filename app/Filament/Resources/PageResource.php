@@ -120,6 +120,10 @@ class PageResource extends Resource
                                     ->options(function($record) {
                                         if($record) {
                                             return Page::query()
+                                                ->where(function ($query) use ($record) {
+                                                    $query->whereNull('locale')
+                                                        ->orWhere('locale', $record->locale);
+                                                })
                                                 ->whereNot('id', $record->id)
                                                 ->whereNull('parent_id')
                                                 ->pluck('title', 'id');

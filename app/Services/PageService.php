@@ -34,6 +34,7 @@ class PageService
             ->where('slug', $slug)
             ->with('children')
             ->active()
+            ->locale()
             ->first();
 
         if($page) {
@@ -51,7 +52,9 @@ class PageService
                 $q->where('slug', $parentSlug);
             })
             ->where('slug', $slug)
-            ->active()->first();
+            ->active()
+            ->locale()
+            ->first();
 
         if($page) {
             $page->increment('views');
@@ -66,6 +69,8 @@ class PageService
         return Page::query()
             ->where('parent_id', $id)
             ->orderBy('order')
-            ->active()->get();
+            ->active()
+            ->locale()
+            ->get();
     }
 }

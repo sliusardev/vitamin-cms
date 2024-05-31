@@ -13,6 +13,21 @@ trait HasCmsTranslationTrait
     {
         $query->where('locale', app()->getLocale());
     }
+
+    public function scopeLocale(Builder $query): void
+    {
+        $query->where(function ($query) {
+            $query->whereNull('locale')->orWhere('locale', app()->getLocale());
+        });
+    }
+
+    public function scopeLocaleOfRecord(Builder $query): void
+    {
+        $query->where(function ($query) {
+            $query->whereNull('locale')->orWhere('locale', $this->locale);
+        });
+    }
+
     public function translation(): HasOne
     {
         return $this->hasOne(self::$translationModel, 'model_id', 'id')->where('model_type', get_called_class());

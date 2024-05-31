@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
+use App\Traits\HasCmsTranslationTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 
 class Menu extends Model
 {
     use HasFactory;
+    use HasCmsTranslationTrait;
 
     protected $fillable = [
         'title',
@@ -31,18 +34,7 @@ class Menu extends Model
             ->where('created_at', '<=',Carbon::now());
     }
 
-    public function scopeLocale(Builder $query): void
-    {
-        $query->where('locale', null)
-            ->orWhere('locale', app()->getLocale());
-    }
-
-    public function scopeLang(Builder $query): void
-    {
-        $query->where('locale', app()->getLocale());
-    }
-
-    public function menu_items()
+    public function menu_items(): HasMany
     {
         return $this->hasMany(MenuItem::class)->orderBy('order');
     }
