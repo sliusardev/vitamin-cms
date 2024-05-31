@@ -26,6 +26,7 @@ use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Filters\Filter;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -188,6 +189,10 @@ class CategoryResource extends Resource
                     ->label(trans('dashboard.only_enabled'))
                     ->query(fn (Builder $query): Builder => $query->where('is_enabled', true))
                     ->toggle(),
+
+                SelectFilter::make('locale')
+                    ->label(trans('dashboard.locale'))
+                    ->options(cmsLocales())
             ])
             ->actions([
                 ActionGroup::make([
