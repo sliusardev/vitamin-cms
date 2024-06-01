@@ -20,6 +20,8 @@ use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\Action;
+use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Filters\Filter;
@@ -175,8 +177,16 @@ class CategoryResource extends Resource
                     ->toggle(),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                ActionGroup::make([
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                    Action::make('see_on_site')
+                        ->label(trans('dashboard.see_on_site'))
+                        ->icon('heroicon-o-eye')
+                        ->color('primary')
+                        ->url(fn ($record): string => $record->link())
+                        ->openUrlInNewTab()
+                ]),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
