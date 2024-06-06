@@ -14,10 +14,14 @@ class AdmUserSeeder extends Seeder
      */
     public function run(): void
     {
-        $user = User::factory()->create([
-            'name' => 'Admin',
-            'email' => 'admin@admin.com',
-        ]);
+        $user = User::query()->where('email', 'admin@admin.com')->first();
+
+        if (!$user) {
+            $user = User::factory()->create([
+                'name' => 'Admin',
+                'email' => 'admin@admin.com',
+            ]);
+        }
 
         $role = Role::query()->where('name', RoleEnum::ADMIN->value)->first();
 

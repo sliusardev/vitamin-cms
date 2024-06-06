@@ -15,7 +15,12 @@ class AdmRoleSeeder extends Seeder
     {
         $values = RoleEnum::allValues();
 
+        $roles = Role::query()->pluck('name')->toArray();
+
         foreach ($values as $value){
+
+            if(in_array($value, $roles)) continue;
+
             Role::create([
                 'name' => $value,
                 'guard_name' => 'web',

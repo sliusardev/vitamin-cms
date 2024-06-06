@@ -9,6 +9,8 @@ enum RoleEnum: string
     case WRITER = 'writer';
     case MODERATOR = 'moderator';
 
+    case COMPANY_ADMIN = 'company_admin';
+
     /**
      * @return array
      */
@@ -19,6 +21,7 @@ enum RoleEnum: string
             self::ADMIN->value,
             self::WRITER->value,
             self::MODERATOR->value,
+            self::COMPANY_ADMIN->value,
         ];
     }
 
