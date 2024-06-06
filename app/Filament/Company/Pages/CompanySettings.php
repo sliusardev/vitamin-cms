@@ -57,7 +57,6 @@ class CompanySettings extends Page implements HasForms
     {
         return $form
             ->schema([
-
                 Tabs::make('Setting Tabs')
                     ->tabs([
                         Tab::make('Global')

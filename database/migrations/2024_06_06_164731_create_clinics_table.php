@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('companies', function (Blueprint $table) {
+        Schema::create('clinics', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('slug')->unique()->nullable();
@@ -19,13 +19,12 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->text('address')->nullable();
             $table->string('zip_code')->nullable();
-            $table->string('logo')->nullable();
             $table->string('website')->nullable();
+            $table->string('logo')->nullable();
             $table->boolean('is_enabled')->default(true);
             $table->string('seo_title')->nullable();
             $table->string('seo_text_keys')->nullable();
             $table->string('seo_description')->nullable();
-            $table->string('type')->nullable();
             $table->timestamps();
         });
     }
@@ -35,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('companies');
+        Schema::dropIfExists('clinics');
     }
 };

@@ -4,9 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Company extends Model
+class Clinic extends Model
 {
     use HasFactory;
 
@@ -29,9 +28,4 @@ class Company extends Model
         'is_enabled' => 'boolean',
         'custom_fields' => 'array',
     ];
-
-    public function users(): HasMany
-    {
-        return $this->hasMany(User::class);
-    }
 }

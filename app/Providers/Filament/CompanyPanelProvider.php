@@ -27,9 +27,10 @@ class CompanyPanelProvider extends PanelProvider
             ->id('company')
             ->path('company')
             ->login()
+            ->profile()
             ->registration(Register::class)
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Green,
             ])
             ->maxContentWidth('full')
             ->sidebarCollapsibleOnDesktop()
