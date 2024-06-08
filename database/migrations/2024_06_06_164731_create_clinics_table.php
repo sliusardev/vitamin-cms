@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('clinics', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('company_id')->constrained();
+            $table->string('hash')->unique();
             $table->string('name');
             $table->string('slug')->unique()->nullable();
             $table->string('email')->nullable();

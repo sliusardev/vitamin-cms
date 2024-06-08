@@ -11,6 +11,7 @@ class Company extends Model
     use HasFactory;
 
     protected $fillable = [
+        'hash',
         'name',
         'slug',
         'email',
@@ -28,6 +29,7 @@ class Company extends Model
     protected $casts = [
         'is_enabled' => 'boolean',
         'custom_fields' => 'array',
+        'hash' => 'string',
     ];
 
     public function users(): HasMany

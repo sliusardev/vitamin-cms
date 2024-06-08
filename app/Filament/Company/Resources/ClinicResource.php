@@ -71,8 +71,7 @@ class ClinicResource extends Resource
                                     ->email(),
 
                                 TextInput::make('phone')
-                                    ->label(trans('clinic.clinic_phone'))
-                                    ->tel(),
+                                    ->label(trans('clinic.clinic_phone')),
 
                                 TextInput::make('address')
                                     ->label(trans('clinic.clinic_address'))
@@ -82,6 +81,12 @@ class ClinicResource extends Resource
                                     ->label(trans('clinic.clinic_logo'))
                                     ->directory('company')
                                     ->image()
+                                    ->columnSpanFull(),
+
+                                TextInput::make('hash')
+                                    ->label(trans('clinic.hash'))
+                                    ->default(Str::random(15))
+                                    ->disabledOn('edit')
                                     ->columnSpanFull(),
 
                                 Toggle::make('is_enabled')

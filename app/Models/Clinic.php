@@ -11,6 +11,8 @@ class Clinic extends Model
 
     protected $fillable = [
         'name',
+        'company_id',
+        'hash',
         'slug',
         'email',
         'phone',
@@ -27,5 +29,6 @@ class Clinic extends Model
     protected $casts = [
         'is_enabled' => 'boolean',
         'custom_fields' => 'array',
+        'hash' => 'string',
     ];
 }

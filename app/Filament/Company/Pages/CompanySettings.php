@@ -84,7 +84,13 @@ class CompanySettings extends Page implements HasForms
                                     ->label(trans('clinic.company_logo'))
                                     ->directory('company')
                                     ->image()
-                                ->columnSpanFull()
+                                ->columnSpanFull(),
+
+                                TextInput::make('hash')
+                                    ->label(trans('clinic.hash'))
+                                    ->default(Str::random(15))
+                                    ->disabledOn('edit')
+                                    ->columnSpanFull(),
 
                             ])->columns(2),
 

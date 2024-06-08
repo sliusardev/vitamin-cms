@@ -2,11 +2,13 @@
 
 namespace App\Filament\Company\Pages\Auth;
 
+use App\Enums\RoleEnum;
 use App\Models\Company;
 use Filament\Forms\Components\TextInput;
 use Filament\Http\Responses\Auth\Contracts\RegistrationResponse;
 use Filament\Pages\Auth\Register as BaseRegister;
-use Filament\Forms\Components\Component;
+use Illuminate\Support\Str;
+
 class Register extends BaseRegister
 {
     protected function getForms(): array
@@ -15,7 +17,7 @@ class Register extends BaseRegister
             'form' => $this->form(
                 $this->makeForm()
                     ->schema([
-                        ...$this->getRegistrationFields(),
+                        ...$this->getNewFields(),
                         $this->getNameFormComponent(),
                         $this->getEmailFormComponent(),
                         $this->getPasswordFormComponent(),
@@ -26,10 +28,16 @@ class Register extends BaseRegister
         ];
     }
 
-    protected function getRegistrationFields(): array
+    protected function getNewFields(): array
     {
         return [
-            TextInput::make('company_name')->required(),
+            TextInput::make('company_name')
+                ->label(trans('clinic.company_name'))
+                ->required(),
+            TextInput::make('hash')
+                ->label(trans('clinic.hash'))
+                ->default(Str::random(15))
+                ->disabled(),
         ];
     }
 
@@ -38,14 +46,18 @@ class Register extends BaseRegister
         parent::register();
 
         $user = auth()->user();
-        $companyName = $this->data['company_name'];
 
-        $company = Company::query()->create(['name' => $companyName]);
+        $company = Company::query()->create([
+            'name' => $this->data['company_name'],
+            'hash' => $this->data['hash']
+        ]);
 
-        session()->put('company_name', $company->name);
+        session(['company_id' => $company->id]);
 
         $user->company_id = $company->id;
         $user->save();
+
+        $user->assignRole(RoleEnum::COMPANY_ADMIN);
 
         return app(RegistrationResponse::class);
     }

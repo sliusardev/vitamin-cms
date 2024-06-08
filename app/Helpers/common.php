@@ -68,3 +68,7 @@ function getRecentPosts()
 {
     return PostService::recentPosts();
 }
+
+function companyTest() {
+    dd(session('company_id'));
+}

@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Company\Resources;
 
-use App\Filament\Resources\UserResource\Pages;
-use App\Filament\Resources\UserResource\RelationManagers;
+use App\Filament\Company\Resources\UserResource\Pages;
+use App\Filament\Company\Resources\UserResource\RelationManagers;
 use App\Models\User;
+use App\Services\UserService;
+use Filament\Forms;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -14,6 +16,8 @@ use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Hash;
 
 class UserResource extends Resource
@@ -21,15 +25,6 @@ class UserResource extends Resource
     protected static ?string $model = User::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
-
-    protected static ?int $navigationSort = 1;
-
-    protected static ?string $navigationGroup = 'Authentication';
-
-    public static function getNavigationGroup(): string
-    {
-        return trans('dashboard.authentication');
-    }
 
     public static function getNavigationLabel(): string
     {
@@ -44,6 +39,13 @@ class UserResource extends Resource
     public static function getModelLabel(): string
     {
         return trans('dashboard.user');
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        $query = parent::getEloquentQuery();
+
+        return $query->where('company_id', auth()->user()->getCompanyId());
     }
 
     public static function form(Form $form): Form
@@ -79,7 +81,8 @@ class UserResource extends Resource
                         Select::make('roles')
                             ->multiple()
                             ->relationship('roles', 'name')
-
+                            ->options(UserService::getCompanyRoles())
+                            ->preload()
                     ])->columns(2)
             ]);
     }
@@ -116,13 +119,14 @@ class UserResource extends Resource
                     ->sortable(),
             ])
             ->filters([
-                SelectFilter::make('role')
+                SelectFilter::make('roles')
                     ->multiple()
                     ->relationship('roles', 'name')
+                    ->options(UserService::getCompanyRoles())
+                    ->preload()
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

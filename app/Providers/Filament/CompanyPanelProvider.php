@@ -2,7 +2,10 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Company\Pages\Auth\Login;
 use App\Filament\Company\Pages\Auth\Register;
+use App\Http\Middleware\CompanyMiddleware;
+use Filament\Facades\Filament;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -25,13 +28,14 @@ class CompanyPanelProvider extends PanelProvider
     {
         return $panel
             ->id('company')
-            ->path('company')
-            ->login()
+            ->path('company-dashboard')
+            ->login(Login::class)
             ->profile()
             ->registration(Register::class)
             ->colors([
                 'primary' => Color::Green,
             ])
+            ->brandName(trans('clinic.company_panel'))
             ->maxContentWidth('full')
             ->sidebarCollapsibleOnDesktop()
             ->discoverResources(in: app_path('Filament/Company/Resources'), for: 'App\\Filament\\Company\\Resources')
@@ -56,6 +60,7 @@ class CompanyPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+                CompanyMiddleware::class
             ]);
     }
 }

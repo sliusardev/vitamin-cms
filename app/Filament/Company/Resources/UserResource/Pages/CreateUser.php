@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Company\Resources\ClinicResource\Pages;
+namespace App\Filament\Company\Resources\UserResource\Pages;
 
-use App\Filament\Company\Resources\ClinicResource;
+use App\Filament\Company\Resources\UserResource;
 use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
-class CreateClinic extends CreateRecord
+class CreateUser extends CreateRecord
 {
-    protected static string $resource = ClinicResource::class;
+    protected static string $resource = UserResource::class;
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {

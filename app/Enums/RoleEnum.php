@@ -10,6 +10,8 @@ enum RoleEnum: string
     case MODERATOR = 'moderator';
 
     case COMPANY_ADMIN = 'company_admin';
+    case DOCTOR = 'doctor';
+    case PATIENT = 'patient';
 
     /**
      * @return array
@@ -22,6 +24,20 @@ enum RoleEnum: string
             self::WRITER->value,
             self::MODERATOR->value,
             self::COMPANY_ADMIN->value,
+            self::DOCTOR->value,
+            self::PATIENT->value,
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public static function companyRoles(): array
+    {
+        return [
+            self::COMPANY_ADMIN->value,
+            self::DOCTOR->value,
+            self::PATIENT->value,
         ];
     }
 

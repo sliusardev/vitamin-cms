@@ -34,5 +34,7 @@ return [
     'clinic_skype' => 'Clinic Skype',
     'clinic_zip_code' => 'Clinic Zip Code',
     'clinics' => 'Clinics',
+    'company_panel' => 'Company Panel',
     'clinic' => 'Clinic',
+    'hash' => 'Hash Password',
 ];
