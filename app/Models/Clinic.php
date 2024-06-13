@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Clinic extends Model
 {
@@ -31,4 +32,9 @@ class Clinic extends Model
         'custom_fields' => 'array',
         'hash' => 'string',
     ];
+
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

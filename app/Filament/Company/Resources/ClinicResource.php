@@ -31,6 +31,13 @@ class ClinicResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-s-building-office-2';
 
+    public static function getEloquentQuery(): Builder
+    {
+        $query = parent::getEloquentQuery();
+
+        return $query->where('company_id', session('company_id'));
+    }
+
     public static function getNavigationLabel(): string
     {
         return trans('clinic.clinics');
@@ -64,6 +71,12 @@ class ClinicResource extends Resource
                                     ->required()
                                     ->lazy()
                                     ->afterStateUpdated(fn (string $context, $state, callable $set) => $context ? $set('slug', Str::slug($state)) : null)
+                                    ->columnSpanFull(),
+
+                                TextInput::make('slug')
+                                    ->label(trans('dashboard.slug'))
+                                    ->required()
+                                    ->unique(self::getModel(), 'slug', ignoreRecord: true)
                                     ->columnSpanFull(),
 
                                 TextInput::make('email')

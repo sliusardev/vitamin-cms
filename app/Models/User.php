@@ -4,15 +4,21 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Enums\RoleEnum;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasTenants;
+use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Collection;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser, HasTenants
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
@@ -64,5 +70,25 @@ class User extends Authenticatable
 
     public function getCompanyRoles() {
         return $this->roles()->whereIn('name', RoleEnum::companyRoles())->get();
+    }
+
+    public function clinics(): BelongsToMany
+    {
+        return $this->belongsToMany(Clinic::class);
+    }
+
+    public function getTenants(Panel $panel): Collection
+    {
+        return $this->clinics;
+    }
+
+    public function canAccessTenant(Model $tenant): bool
+    {
+        return $this->clinics()->whereKey($tenant)->exists();
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return true;
     }
 }

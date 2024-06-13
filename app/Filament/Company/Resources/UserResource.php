@@ -5,6 +5,7 @@ namespace App\Filament\Company\Resources;
 use App\Filament\Company\Resources\UserResource\Pages;
 use App\Filament\Company\Resources\UserResource\RelationManagers;
 use App\Models\User;
+use App\Services\CompanyService;
 use App\Services\UserService;
 use Filament\Forms;
 use Filament\Forms\Components\Section;
@@ -45,7 +46,7 @@ class UserResource extends Resource
     {
         $query = parent::getEloquentQuery();
 
-        return $query->where('company_id', auth()->user()->getCompanyId());
+        return $query->where('company_id', session('company_id'));
     }
 
     public static function form(Form $form): Form
@@ -68,6 +69,7 @@ class UserResource extends Resource
                             ->label(trans('dashboard.password'))
                             ->same('passwordConfirmation')
                             ->password()
+                            ->revealable(filament()->arePasswordsRevealable())
                             ->maxLength(255)
                             ->required(fn ($component, $get, $livewire, $model, $record, $set, $state) => $record === null)
                             ->dehydrateStateUsing(fn ($state) => ! empty($state) ? Hash::make($state) : ''),
@@ -75,13 +77,20 @@ class UserResource extends Resource
                         TextInput::make('passwordConfirmation')
                             ->label(trans('dashboard.password_confirmation'))
                             ->password()
+                            ->revealable(filament()->arePasswordsRevealable())
                             ->dehydrated(false)
                             ->maxLength(255),
 
                         Select::make('roles')
                             ->multiple()
                             ->relationship('roles', 'name')
-                            ->options(UserService::getCompanyRoles())
+                            ->options(CompanyService::getCompanyRoles())
+                            ->preload(),
+
+                        Select::make('clinics')
+                            ->multiple()
+                            ->relationship('clinics','name')
+                            ->options(CompanyService::getCompanyClinics())
                             ->preload()
                     ])->columns(2)
             ]);
@@ -101,6 +110,7 @@ class UserResource extends Resource
 
                 TextColumn::make('email')
                     ->label(trans('dashboard.email'))
+                    ->copyable()
                     ->searchable()
                     ->sortable(),
 

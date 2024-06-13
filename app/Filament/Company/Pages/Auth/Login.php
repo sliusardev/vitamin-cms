@@ -45,7 +45,7 @@ class Login extends BaseLogin
 
         $user = Filament::auth()->user();
 
-        session(['company_id' => $$user->company_id]);
+        session(['company_id' => $user->company_id]);
 
         return app(LoginResponse::class);
     }
