@@ -12,7 +12,7 @@ class CreateUser extends CreateRecord
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {
-        $data['company_id'] = auth()->user()->getCompanyId();
+        $data['company_id'] = session('company_id');
 
         return $data;
     }

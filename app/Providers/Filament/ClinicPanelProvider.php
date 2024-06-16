@@ -32,7 +32,7 @@ class ClinicPanelProvider extends PanelProvider
             ])
             ->tenant(
                 Clinic::class,
-                ownershipRelationship: 'owner',
+//                ownershipRelationship: 'Company',
                 slugAttribute: 'slug'
             )
             ->login()

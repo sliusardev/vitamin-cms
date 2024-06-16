@@ -100,6 +100,7 @@ class ClinicResource extends Resource
                                     ->label(trans('clinic.hash'))
                                     ->default(Str::random(15))
                                     ->disabledOn('edit')
+                                    ->hiddenOn('create')
                                     ->columnSpanFull(),
 
                                 Toggle::make('is_enabled')
